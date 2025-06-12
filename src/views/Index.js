@@ -8,22 +8,7 @@ import React from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
-
-// sections for this page
-import Images from "./index-sections/Images.js";
-import BasicElements from "./index-sections/BasicElements.js";
-import Navbars from "./index-sections/Navbars.js";
-import Tabs from "./index-sections/Tabs.js";
-import Pagination from "./index-sections/Pagination.js";
-import Notifications from "./index-sections/Notifications.js";
-import Typography from "./index-sections/Typography.js";
-import Javascript from "./index-sections/Javascript.js";
-import Carousel from "./index-sections/Carousel.js";
-import NucleoIcons from "./index-sections/NucleoIcons.js";
-import CompleteExamples from "./index-sections/CompleteExamples.js";
-import SignUp from "./index-sections/SignUp.js";
-import Examples from "./index-sections/Examples.js";
-import Download from "./index-sections/Download.js";
+import { Button, Container, Row, Col } from "reactstrap";
 
 function Index() {
   React.useEffect(() => {
@@ -43,20 +28,49 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-          <Images />
-          <BasicElements />
-          <Navbars />
-          <Tabs />
-          <Pagination />
-          <Notifications />
-          <Typography />
-          <Javascript />
-          <Carousel />
-          <NucleoIcons />
-          <CompleteExamples />
-          <SignUp />
-          <Examples />
-          <Download />
+      <div className="section section-nucleo-icons">
+        <Container>
+          <Row>
+            <Col lg="6" md="12" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+              <h2 className="title">이내코리아</h2>
+              <h5 className="description">
+                여행의 본질을 제공합니다.<br />
+                여행의 본질을 제공합니다.<br />
+                여행의 본질을 제공합니다.<br />
+                여행의 본질을 제공합니다.<br />
+              </h5>
+<div className="flex-align">
+              <Button
+                className="btn-round mr-1"
+                color="info"
+                href="/nucleo-icons"
+                size="lg"
+                target="_blank"
+              >
+                둘러보기
+              </Button>
+              <Button
+                className="btn-round"
+                color="info"
+                href="https://nucleoapp.com/?ref=1712"
+                outline
+                size="lg"
+                target="_blank"
+              >
+                체험하기
+              </Button>
+              </div>
+            </Col>
+            <Col lg="6" md="12">
+                <img
+                  alt="..."
+                  src={require("assets/img/hero-image-2.png")}
+                ></img>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
         </div>
         <DarkFooter />
       </div>

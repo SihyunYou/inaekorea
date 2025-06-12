@@ -58,7 +58,7 @@ function IndexNavbar() {
               target="_blank"
               id="navbar-brand"
             >
-              Now UI Kit React
+              이내코리아
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
               Designed by Invision. Coded by Creative Tim
@@ -93,8 +93,8 @@ function IndexNavbar() {
                       .scrollIntoView();
                   }}
                 >
-                  <i className="now-ui-icons arrows-1_cloud-download-93"></i>
-                  <p>Download</p>
+                  <i className="now-ui-icons objects_spaceship"></i>
+                  <p style={{ fontSize: '14px' }}>회사소개</p>
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
@@ -106,7 +106,7 @@ function IndexNavbar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <p>Components</p>
+                  <p style={{ fontSize: '14px' }}>재밌는 것들</p>
                 </DropdownToggle>
                 <DropdownMenu>
                   <DropdownItem to="/index" tag={Link}>
@@ -130,8 +130,8 @@ function IndexNavbar() {
                   id="upgrade-to-pro"
                   target="_blank"
                 >
-                  <i className="now-ui-icons arrows-1_share-66 mr-1"></i>
-                  <p>Upgrade to PRO</p>
+                  <i className="now-ui-icons arrows-1_cloud-download-93 mr-1"></i>
+                  <p>지금 다운로드하기</p>
                 </Button>
                 <UncontrolledTooltip target="#upgrade-to-pro">
                   Cooming soon!

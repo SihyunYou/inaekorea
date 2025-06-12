@@ -1,3 +1,17 @@
+@font-face { font-family: 'Pretendard'; font-weight: 200; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Thin.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 300; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-ExtraLight.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 400; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Light.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 500; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Regular.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 600; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Medium.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 700; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-SemiBold.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 800; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Bold.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 900; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-ExtraBold.otf') format('opentype');}
+@font-face { font-family: 'Pretendard'; font-weight: 1000; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Black.otf') format('opentype');}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, 'Noto Sans KR', sans-serif;
+}
+
 .tim-row {
   margin-bottom: 20px;
 }
@@ -502,5 +516,17 @@
 @media screen and (max-width: 991px) {
   .section-navbars .navbar-collapse {
     display: none !important;
+  }
+}
+
+.flex-align {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+@media (min-width: 992px) {
+  .flex-align {
+    justify-content: flex-start;
   }
 }
