@@ -52,33 +52,8 @@ function IndexNavbar() {
       ) : null}
       <Navbar className={"fixed-top " + navbarColor} expand="lg" color="info">
         <Container>
-          <div className="navbar-translate">
-            <NavbarBrand
-              href="https://demos.creative-tim.com/now-ui-kit-react/#/index?ref=nukr-index-navbar"
-              target="_blank"
-              id="navbar-brand"
-            >
-              이내코리아
-            </NavbarBrand>
-            <UncontrolledTooltip target="#navbar-brand">
-              Designed by Invision. Coded by Creative Tim
-            </UncontrolledTooltip>
-            <button
-              className="navbar-toggler navbar-toggler"
-              onClick={() => {
-                document.documentElement.classList.toggle("nav-open");
-                setCollapseOpen(!collapseOpen);
-              }}
-              aria-expanded={collapseOpen}
-              type="button"
-            >
-              <span className="navbar-toggler-bar top-bar"></span>
-              <span className="navbar-toggler-bar middle-bar"></span>
-              <span className="navbar-toggler-bar bottom-bar"></span>
-            </button>
-          </div>
           <Collapse
-            className="justify-content-end"
+            className="justify-content-center"
             isOpen={collapseOpen}
             navbar
           >
@@ -94,7 +69,7 @@ function IndexNavbar() {
                   }}
                 >
                   <i className="now-ui-icons objects_spaceship"></i>
-                  <p style={{ fontSize: '14px' }}>회사소개</p>
+                  <p style={{ fontSize: '14px' }}>회사 소개</p>
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav>
@@ -105,20 +80,24 @@ function IndexNavbar() {
                   nav
                   onClick={(e) => e.preventDefault()}
                 >
-                  <i className="now-ui-icons design_app mr-1"></i>
-                  <p style={{ fontSize: '14px' }}>재밌는 것들</p>
+                  <i className="now-ui-icons transportation_bus-front-12 mr-1"></i>
+                  <p style={{ fontSize: '14px' }}>로컬 트립 가이드</p>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="/index" tag={Link}>
-                    <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                    All components
+                  <DropdownItem to="/local-trip-guide/intro" tag={Link}>
+                    <i className="now-ui-icons design_app mr-2"></i>
+                    소개
+                  </DropdownItem>
+                  <DropdownItem to="/local-trip-guide/process" tag={Link}>
+                    <i className="now-ui-icons design_bullet-list-67 mr-2"></i>
+                    진행 절차
                   </DropdownItem>
                   <DropdownItem
-                    href="https://demos.creative-tim.com/now-ui-kit-react/#/documentation/introduction?ref=nukr-index-navbar"
+                    to="/local-trip-guide/consult"
                     target="_blank"
                   >
-                    <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
-                    Documentation
+                    <i className="now-ui-icons emoticons_satisfied mr-2"></i>
+                    상담 받기
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
@@ -130,24 +109,11 @@ function IndexNavbar() {
                   id="upgrade-to-pro"
                   target="_blank"
                 >
-                  <i className="now-ui-icons arrows-1_cloud-download-93 mr-1"></i>
-                  <p>지금 다운로드하기</p>
+                  <i className="now-ui-icons ui-2_chat-round mr-1"></i>
+                  <p>유학생 커뮤니티</p>
                 </Button>
                 <UncontrolledTooltip target="#upgrade-to-pro">
                   Cooming soon!
-                </UncontrolledTooltip>
-              </NavItem>
-              <NavItem>
-                <NavLink
-                  href="https://twitter.com/CreativeTim?ref=creativetim"
-                  target="_blank"
-                  id="twitter-tooltip"
-                >
-                  <i className="fab fa-twitter"></i>
-                  <p className="d-lg-none d-xl-none">Twitter</p>
-                </NavLink>
-                <UncontrolledTooltip target="#twitter-tooltip">
-                  Follow us on Twitter
                 </UncontrolledTooltip>
               </NavItem>
               <NavItem>

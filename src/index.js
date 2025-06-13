@@ -26,6 +26,7 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages for this kit
 import Index from "views/Index.js";
+import LocalTripGuideIntro from "views/LocalTripGuideIntro.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -33,6 +34,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/index" element={<Index />} />
+      <Route path="/local-trip-guide/intro" element={<LocalTripGuideIntro />} />
+      <Route path="/local-trip-guide/consult" element={<LocalTripGuideIntro />} />
 
       <Route path="*" element={<Navigate to="/index" replace />} />
     </Routes>
