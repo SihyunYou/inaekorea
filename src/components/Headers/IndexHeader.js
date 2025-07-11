@@ -34,16 +34,15 @@ function IndexHeader() {
         ></div>
         <Container>
           <div className="content-center brand">
+            <h3 style={{ fontSize: 'calc(16px + 0.6vw)' }}>대학교 <strong style={{ fontSize: 'calc(17px + 0.7vw)' }}>국제교류처</strong>를 위한<br />외국인 유학생 <strong style={{ fontSize: 'calc(17px + 0.7vw)' }}>문화체험</strong> 통합 솔루션</h3>
             <img
               alt="..."
-              className="n-logo"
-              src={require("assets/img/logo.webp")}
+              style={{ width: '68%', marginTop: '-10px' }}
+              src={require("assets/img/logo-localtripguide.png")}
             ></img>
-            <h1 className="h1-seo" style={{ fontSize: '45px' }}>이내코리아</h1>
-            <h3>여행의 본질을 제공합니다.</h3>
           </div>
           <h6 className="category category-absolute">
-            이내코리아 이내코리아
+             로컬트립가이드
           </h6>
         </Container>
       </div>
