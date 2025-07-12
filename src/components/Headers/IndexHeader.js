@@ -42,7 +42,7 @@ function IndexHeader() {
             ></img>
           </div>
           <h6 className="category category-absolute">
-             로컬트립가이드
+             © 2025 이내코리아
           </h6>
         </Container>
       </div>

@@ -556,3 +556,25 @@ body {
   margin-bottom: 10px;
   aspect-ratio: 1;
 }
+
+.indent-second-line {
+  text-indent: -1.4em;
+  padding-left: 0.7em;
+}
+
+.custom-outline-button {
+  background-color: white;
+  color: #3399ff;
+  border: 2px solid #3399ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  width: 160px;
+}
+
+.custom-outline-button:hover {
+  background-color: #3399ff;
+  color: white;
+}

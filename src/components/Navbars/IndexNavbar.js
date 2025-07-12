@@ -31,7 +31,9 @@ function IndexNavbar() {
   return (
     <Navbar className={"fixed-top " + navbarColor} color="info">
       <Container>
-        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'flex-end', margin: '0', marginRight: '-20px' }}>
+        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginRight: '-20px' }}>
+<p>로컬트립가이드</p>
+<div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'center' }}>
           <NavItem>
             <NavLink
               id="phone-tooltip"
@@ -87,6 +89,7 @@ function IndexNavbar() {
               localtripguide.official
             </UncontrolledTooltip>
           </NavItem>
+</div>
         </Nav>
       </Container>
     </Navbar>
