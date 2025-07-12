@@ -31,8 +31,12 @@ function IndexNavbar() {
   return (
     <Navbar className={"fixed-top " + navbarColor} color="info">
       <Container>
-        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginRight: '-20px' }}>
-<p>로컬트립가이드</p>
+        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginRight: '-20px'}}>
+          <NavItem style={{ cursor: 'pointer' }}>
+            <NavLink>
+              <h5 style={{ fontSize: '14px', margin: '0', fontWeight: '600' }}>이내코리아 소개</h5>
+            </NavLink>
+          </NavItem>
 <div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'center' }}>
           <NavItem>
             <NavLink
