@@ -101,21 +101,61 @@ function ExamplesNavbar() {
             navbar
           >
             <Nav navbar>
-              <NavItem>
-                <NavLink>
-                  소개
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  히스토리
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink>
-                  팀원
-                </NavLink>
-              </NavItem>
+          <NavItem>
+            <NavLink
+              id="phone-tooltip"
+              style={{
+                width: "42px",
+                height: "42px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <i className="fas fa-phone" style={{ fontSize: "13px" }}></i>
+            </NavLink>
+            <UncontrolledTooltip target="#phone-tooltip">
+              대표 전화번호
+              <br />
+              010-2315-3979
+            </UncontrolledTooltip>
+          </NavItem>
+
+          <NavItem>
+            <NavLink
+              href="mailto:enae.korea@gmail.com"
+              id="email-tooltip"
+              style={{
+                width: "42px",
+                height: "42px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <i className="far fa-envelope" style={{ fontSize: "15px" }}></i>
+            </NavLink>
+            <UncontrolledTooltip target="#email-tooltip">
+              이메일
+              <br />
+              enae.korea@gmail.com
+            </UncontrolledTooltip>
+          </NavItem>
+
+          <NavItem>
+            <NavLink
+              href="https://www.instagram.com/localtripguide.official"
+              target="_blank"
+              id="instagram-tooltip"
+            >
+              <i className="fab fa-instagram" style={{ fontSize: "16px" }}></i>
+            </NavLink>
+            <UncontrolledTooltip target="#instagram-tooltip">
+              인스타그램
+              <br />
+              localtripguide.official
+            </UncontrolledTooltip>
+          </NavItem>
             </Nav>
           </Collapse>
         </Container>

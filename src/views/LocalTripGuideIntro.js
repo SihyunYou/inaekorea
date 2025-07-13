@@ -338,6 +338,7 @@ function LocalTripGuideIntro() {
                 <Col lg="6" md="12">
                   <img
                     alt="..."
+                    className="img-raised"
                     src={require("assets/img/bg3.jpg")}
                   ></img>
                 </Col>
@@ -375,6 +376,7 @@ function LocalTripGuideIntro() {
                 <Col lg="6" md="12">
                   <img
                     alt="..."
+                    className="img-raised"
                     src={require("assets/img/bg1.jpg")}
                   ></img>
                 </Col>
@@ -412,6 +414,7 @@ function LocalTripGuideIntro() {
                 <Col lg="6" md="12">
                   <img
                     alt="..."
+                    className="img-raised"
                     src={require("assets/img/bg4.jpg")}
                   ></img>
                 </Col>
@@ -449,6 +452,7 @@ function LocalTripGuideIntro() {
                 <Col lg="6" md="12">
                   <img
                     alt="..."
+                    className="img-raised"
                     src={require("assets/img/bg5.jpg")}
                   ></img>
                 </Col>
