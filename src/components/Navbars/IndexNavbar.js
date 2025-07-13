@@ -33,7 +33,7 @@ function IndexNavbar() {
       <Container>
         <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginRight: '-20px'}}>
           <NavItem style={{ cursor: 'pointer' }}>
-            <NavLink>
+            <NavLink href="/enaekorea">
               <h5 style={{ fontSize: '14px', margin: '0', fontWeight: '600' }}>이내코리아 소개</h5>
             </NavLink>
           </NavItem>

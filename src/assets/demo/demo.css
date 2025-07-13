@@ -607,3 +607,38 @@ body {
   background-color: green;
   color: white;
 }
+
+.modern-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 16px;
+  border-top: 3px solid #444; /* 위쪽 굵은 경계선 */
+  border-bottom: 3px solid #444; /* 아래쪽 굵은 경계선 */
+  box-shadow: none; /* 그림자 제거 */
+  border-radius: 0;
+}
+
+.modern-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #ccc; /* 중간 경계선 얇게 */
+}
+
+.modern-table tr:last-child td {
+  border-bottom: none;
+}
+
+.modern-table td:first-child {
+  font-weight: 600;
+  color: #333;
+  width: 30%;
+}
+
+.modern-table td:last-child {
+  color: #111;
+}
+
+.modern-table tr:hover {
+  background-color: #efefef; /* hover 효과도 무채색 계열 */
+}

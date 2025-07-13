@@ -29,8 +29,7 @@ function Index() {
       <div className="wrapper">
         <IndexHeader />
         <div className="main">
-        <LocalTripGuideIntro />
-
+          <LocalTripGuideIntro />
         </div>
         <DarkFooter />
       </div>

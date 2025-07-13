@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 // core components
 import { Container, Button, Row, Col } from "reactstrap";
@@ -9,6 +9,47 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { FaSchool, FaBriefcase } from "react-icons/fa";
 import PortpolioViewer from "./index-sections/PortpolioViewer.js";
+import CountUp from "react-countup";
+import { MdArrowDownward } from "react-icons/md";
+
+function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
+  const ref = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!ref.current || isVisible) return;
+
+      const rect = ref.current.getBoundingClientRect();
+      const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+      if (isInView) {
+        setIsVisible(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // 초기 실행
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isVisible]);
+
+  return (
+    <div className="box-no-border" style={{ padding: "5px" }} ref={ref}>
+      <img src={imgSrc} style={{ width: "80%" }} />
+      <h1 style={{ fontSize: "calc(19px + 0.7vw)", fontWeight: "900", marginTop: "10px", marginBottom: 0 }}>
+        {isVisible ? (
+          <CountUp end={end} duration={duration} suffix={suffix} separator="," />
+        ) : (
+          "0"
+        )}
+      </h1>
+      <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
+        <strong>{label}</strong>
+      </h4>
+    </div>
+  );
+}
 
 function LocalTripGuideIntro() {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -77,21 +118,21 @@ function LocalTripGuideIntro() {
                     <li>
                       <i
                         className="fas fa-check"
-                        style={{ color: "#17a2b8", marginRight: "8px" }}
+                        style={{ color: "green", marginRight: "8px" }}
                       ></i>
                       대학교의 니즈에 맞는 맞춤형 프로그램 기획
                     </li>
                     <li>
                       <i
                         className="fas fa-check"
-                        style={{ color: "#17a2b8", marginRight: "8px" }}
+                        style={{ color: "green", marginRight: "8px" }}
                       ></i>
                       전문 운영팀 배치를 통한 안정된 프로그램 운영
                     </li>
                     <li>
                       <i
                         className="fas fa-check"
-                        style={{ color: "#17a2b8", marginRight: "8px" }}
+                        style={{ color: "green", marginRight: "8px" }}
                       ></i>
                       신속하고 세심한 운영 결과 보고서 제공
                     </li>
@@ -144,92 +185,21 @@ function LocalTripGuideIntro() {
             이미 많은 대학과 학생들이 로컬트립가이드를 경험했습니다.
           </h4>
           <Container>
-            <Row>
-              <Col xs="6" md="3">
-                <div className="box-no-border" style={{ padding: "5px" }}>
-                  <img
-                    src={require("assets/img/fruit1.png")}
-                    style={{ width: "80%" }}
-                  />
-                  <h1
-                    style={{
-                      fontSize: "calc(19px + 0.7vw)",
-                      fontWeight: "900",
-                      marginTop: "10px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    10+
-                  </h1>
-                  <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
-                    <strong>참여 대학</strong>
-                  </h4>
-                </div>
-              </Col>
-              <Col xs="6" md="3">
-                <div className="box-no-border" style={{ padding: "5px" }}>
-                  <img
-                    src={require("assets/img/fruit2.png")}
-                    style={{ width: "80%" }}
-                  />
-                  <h1
-                    style={{
-                      fontSize: "calc(19px + 0.7vw)",
-                      fontWeight: "900",
-                      marginTop: "10px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    25+
-                  </h1>
-                  <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
-                    <strong>참여 학생 국적</strong>
-                  </h4>
-                </div>
-              </Col>
-              <Col xs="6" md="3">
-                <div className="box-no-border" style={{ padding: "5px" }}>
-                  <img
-                    src={require("assets/img/fruit3.png")}
-                    style={{ width: "80%" }}
-                  />
-                  <h1
-                    style={{
-                      fontSize: "calc(19px + 0.7vw)",
-                      fontWeight: "900",
-                      marginTop: "10px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    1500+
-                  </h1>
-                  <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
-                    <strong>참여 외국인 학생</strong>
-                  </h4>
-                </div>
-              </Col>
-              <Col xs="6" md="3">
-                <div className="box-no-border" style={{ padding: "5px" }}>
-                  <img
-                    src={require("assets/img/fruit3.png")}
-                    style={{ width: "80%" }}
-                  />
-                  <h1
-                    style={{
-                      fontSize: "calc(19px + 0.7vw)",
-                      fontWeight: "900",
-                      marginTop: "10px",
-                      marginBottom: 0,
-                    }}
-                  >
-                    95%
-                  </h1>
-                  <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
-                    <strong>참여자 만족도</strong>
-                  </h4>
-                </div>
-              </Col>
-            </Row>
+<Row>
+  <Col xs="6" md="3">
+    <StatBox imgSrc={require("assets/img/fruit1.png")} end={10} suffix="+" label="참여 대학" duration={3}/>
+  </Col>
+  <Col xs="6" md="3">
+    <StatBox imgSrc={require("assets/img/fruit2.png")} end={25} suffix="+" label="참여 학생 국적" duration={3}/>
+  </Col>
+  <Col xs="6" md="3">
+    <StatBox imgSrc={require("assets/img/fruit3.png")} end={1500} suffix="+" label="참여 외국인 학생" duration={2}/>
+  </Col>
+  <Col xs="6" md="3">
+    <StatBox imgSrc={require("assets/img/fruit3.png")} end={95} suffix="%" label="참여자 만족도" duration={3}/>
+  </Col>
+</Row>
+
 
             <br />
             <br />
@@ -340,7 +310,7 @@ function LocalTripGuideIntro() {
                   <p>
                     + <strong>안전</strong>한 문화체험 운영
                     <br />
-                    + <strong>만족도 조사</strong> 및 상세 피드백
+                    + 다개국어 가능한 <strong>전문 운영팀</strong> 배치
                   </p>
                 </div>
               </VerticalTimelineElement>
@@ -355,13 +325,159 @@ function LocalTripGuideIntro() {
                 <div>
                   <h3 className="vertical-timeline-element-title">결과 보고</h3>
                   <p>
-                    + 상세 결과 보고서 <strong>2~3일</strong> 내 제공
+                    + 신속한 상세 <strong>결과 보고서</strong> 제공
                     <br />
                     + 빠른 <strong>언론 홍보</strong> 및 인터넷 노출
                   </p>
                 </div>
               </VerticalTimelineElement>
             </VerticalTimeline>
+
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col lg="6" md="12">
+                  <img
+                    alt="..."
+                    src={require("assets/img/bg3.jpg")}
+                  ></img>
+                </Col>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    marginBottom: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;[STEP 1]</strong> 프로그램 상담
+                  </h3>
+                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                    <ul>
+                      <li>정확한 프로그램 기획을 위한 <strong>1:1 고객 상담</strong></li>
+                      <li><strong>고객 맞춤형</strong> 프로그램 및 견적을 위한 다각도 분석</li>
+                      <li>상단 <strong>전화/이메일/인스타그램</strong>으로 상담 문의 가능</li>
+                    </ul>
+                  </h4>
+                </Col>
+              </Row>
+            </Container>
+           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
+           </div>
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col lg="6" md="12">
+                  <img
+                    alt="..."
+                    src={require("assets/img/bg1.jpg")}
+                  ></img>
+                </Col>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    marginBottom: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;[STEP 2]</strong> 맞춤형 기획
+                  </h3>
+                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                    <ul>
+                      <li><strong>맞춤형</strong> 운영 시스템, 이벤트 기획</li>
+                      <li>편성 예산을 고려한 <strong>최저가, 최적</strong>의 견적 확보</li>
+                      <li><strong>이동수단, 식당, 보험</strong> 등의 애로사항을 한번에</li>
+                    </ul>
+                  </h4>
+                </Col>
+              </Row>
+            </Container>
+           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
+           </div>
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col lg="6" md="12">
+                  <img
+                    alt="..."
+                    src={require("assets/img/bg4.jpg")}
+                  ></img>
+                </Col>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    marginBottom: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;[STEP 3]</strong> 프로그램 운영
+                  </h3>
+                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                    <ul>
+                      <li>70명 이상의 <strong>전문 운영팀</strong>과 7개 언어를 커버하는 <strong>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
+                      <li>현지 문화를 즐겁게 체험할 수 있는 동시에 여행자의 <strong>안전</strong>에 초점을 맞춘 운영</li>
+                      <li>흥미와 선물을 동시에 챙길 수 있는 <strong>체험형 프로그램</strong> 운영</li>
+                    </ul>
+                  </h4>
+                </Col>
+              </Row>
+            </Container>
+           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
+           </div>
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col lg="6" md="12">
+                  <img
+                    alt="..."
+                    src={require("assets/img/bg5.jpg")}
+                  ></img>
+                </Col>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    marginBottom: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;[STEP 4]</strong> 결과 보고
+                  </h3>
+                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                    <ul>
+                      <li><strong>2~3일</strong> 내로 받아볼 수 있는 상세 결과 보고서</li>
+                      <li>높은 응답률을 기반으로 한 <strong>만족도/피드백</strong> 공유</li>
+                      <li>빠른 실행력으로 인터넷 기사 노출을 통한 <strong>언론 홍보</strong></li>
+                    </ul>
+                  </h4>
+                </Col>
+              </Row>
+            </Container>
 
             <br /><br /><br /><br /><br /><br /><br /><br />
 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
