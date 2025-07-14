@@ -31,31 +31,24 @@ function IndexNavbar() {
   return (
     <Navbar className={"fixed-top " + navbarColor} color="info">
       <Container>
-        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginRight: '-20px'}}>
+        <Nav navbar className="ml-auto" style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'space-between', margin: '0', marginTop: '5px' }}>
           <NavItem style={{ cursor: 'pointer' }}>
-            <NavLink href="/enaekorea">
-              <h5 style={{ fontSize: '14px', margin: '0', fontWeight: '600' }}>이내코리아 소개</h5>
-            </NavLink>
+            <NavLink href="/">
+<img
+  alt="..."
+  src={require("assets/img/logo-footer.png")}
+  style={{
+    width: 'calc(20px + 1vw)', 
+    height: 'calc(20px + 1vw)',           
+    display: 'block'       
+  }}
+/>        </NavLink>
           </NavItem>
 <div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'center' }}>
-          <NavItem>
-            <NavLink
-              id="phone-tooltip"
-              style={{
-                width: "42px",
-                height: "42px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <i className="fas fa-phone" style={{ fontSize: "13px" }}></i>
+          <NavItem style={{ cursor: 'pointer' }}>
+            <NavLink href="/">
+              <h4 style={{ margin: 'auto', marginTop: '1px' }}>이내코리아</h4>
             </NavLink>
-            <UncontrolledTooltip target="#phone-tooltip">
-              대표 전화번호
-              <br />
-              010-2315-3979
-            </UncontrolledTooltip>
           </NavItem>
 
           <NavItem>

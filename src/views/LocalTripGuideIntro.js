@@ -76,93 +76,6 @@ function LocalTripGuideIntro() {
     <>
       <div className="wrapper">
         <div className="main">
-          <div className="section section-nucleo-icons">
-            <Container>
-              <Row>
-                <Col
-                  lg="6"
-                  md="12"
-                  style={{
-                    marginBottom: "50px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)" }}
-                  >
-                    <strong>로컬트립가이드</strong>로
-                    <br />
-                    문화연수 기획의 고민을 해결해드립니다.
-                  </h3>
-                  <ul
-                    className="description"
-                    style={{
-                      fontSize: "calc(12px + 0.5vw)",
-                      listStyle: "none",
-                      paddingLeft: 0,
-                      lineHeight: "1.6",
-                    }}
-                  >
-                    <li>
-                      <i
-                        className="fas fa-check"
-                        style={{ color: "#D4D4D4", marginRight: "8px" }}
-                      ></i>
-                      <span style={{ textDecoration: "line-through" }}>
-                        프로그램 단순 기획 및 운영
-                      </span>
-                    </li>
-                    <li>
-                      <i
-                        className="fas fa-check"
-                        style={{ color: "green", marginRight: "8px" }}
-                      ></i>
-                      대학교의 니즈에 맞는 맞춤형 프로그램 기획
-                    </li>
-                    <li>
-                      <i
-                        className="fas fa-check"
-                        style={{ color: "green", marginRight: "8px" }}
-                      ></i>
-                      전문 운영팀 배치를 통한 안정된 프로그램 운영
-                    </li>
-                    <li>
-                      <i
-                        className="fas fa-check"
-                        style={{ color: "green", marginRight: "8px" }}
-                      ></i>
-                      신속하고 세심한 운영 결과 보고서 제공
-                    </li>
-                    <li
-                      style={{
-                        color: "#2c2c2c",
-                        fontWeight: "500",
-                        marginTop: "10px",
-                      }}
-                    >
-                      <i
-                        className="fas fa-arrow-right"
-                        style={{ color: "#2c2c2c", marginRight: "8px" }}
-                      ></i>
-                      <strong>로컬트립가이드</strong>로 대학교의 니즈와
-                      <br />
-                      &nbsp;&nbsp;&nbsp;&nbsp;유학생의 만족도를 동시에 해결할 수
-                      있습니다.
-                    </li>
-                  </ul>
-                </Col>
-                <Col lg="6" md="12">
-                  <img
-                    alt="..."
-                    src={require("assets/img/hero-image-2.png")}
-                  ></img>
-                </Col>
-              </Row>
-            </Container>
-          </div>
           <h2
             className="title"
             style={{
@@ -262,9 +175,9 @@ function LocalTripGuideIntro() {
             <VerticalTimeline>
               <VerticalTimelineElement
                 className="vertical-timeline-element--education"
-                contentStyle={{ background: 'green', color: "#fff", opacity: '0.7' }}
-                contentArrowStyle={{ borderRight: "7px solid green" }}
-                iconStyle={{ background: 'green', color: "#fff" }}
+                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.7' }}
+                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
+                iconStyle={{ background: '#00A86C', color: "#fff" }}
                 icon={<FaSchool />}
               >
                 <div style={{ textAlign: viewportWidth < 768 ? "left" : "right" }}>
@@ -281,9 +194,9 @@ function LocalTripGuideIntro() {
 
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"           
-                contentStyle={{ background: 'green', color: "#fff", opacity: '0.8' }}
-                contentArrowStyle={{ borderRight: "7px solid green" }}
-                iconStyle={{ background: 'green', color: "#fff" }}
+                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.8' }}
+                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
+                iconStyle={{ background: '#00A86C', color: "#fff" }}
                 icon={<FaBriefcase />}
               >
                 <div>
@@ -298,9 +211,9 @@ function LocalTripGuideIntro() {
 
               <VerticalTimelineElement
                 className="vertical-timeline-element--education"
-                contentStyle={{ background: 'green', color: "#fff", opacity: '0.9' }}
-                contentArrowStyle={{ borderRight: "7px solid green" }}
-                iconStyle={{ background: 'green', color: "#fff" }}
+                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.9' }}
+                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
+                iconStyle={{ background: '#00A86C', color: "#fff" }}
                 icon={<FaSchool />}
               >
                 <div style={{ textAlign: viewportWidth < 768 ? "left" : "right" }}>
@@ -317,9 +230,9 @@ function LocalTripGuideIntro() {
 
               <VerticalTimelineElement
                 className="vertical-timeline-element--work"
-                contentStyle={{ background: 'green', color: "#fff" }}
-                contentArrowStyle={{ borderRight: "7px solid green" }}
-                iconStyle={{ background: 'green', color: "#fff" }}
+                contentStyle={{ background: '#00A86C', color: "#fff" }}
+                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
+                iconStyle={{ background: '#00A86C', color: "#fff" }}
                 icon={<FaBriefcase />}
               >
                 <div>
@@ -333,6 +246,7 @@ function LocalTripGuideIntro() {
               </VerticalTimelineElement>
             </VerticalTimeline>
 
+           <br /><br /><br /><br />
            <Container style={{ margin: '10vh 0' }}>
               <Row>
                 <Col lg="6" md="12">
@@ -358,7 +272,7 @@ function LocalTripGuideIntro() {
                   >
                     <strong>&nbsp;&nbsp;&nbsp;[STEP 1]</strong> 프로그램 상담
                   </h3>
-                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
                     <ul>
                       <li>정확한 프로그램 기획을 위한 <strong>1:1 고객 상담</strong></li>
                       <li><strong>고객 맞춤형</strong> 프로그램 및 견적을 위한 다각도 분석</li>
@@ -396,7 +310,7 @@ function LocalTripGuideIntro() {
                   >
                     <strong>&nbsp;&nbsp;&nbsp;[STEP 2]</strong> 맞춤형 기획
                   </h3>
-                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
                     <ul>
                       <li><strong>맞춤형</strong> 운영 시스템, 이벤트 기획</li>
                       <li>편성 예산을 고려한 <strong>최저가, 최적</strong>의 견적 확보</li>
@@ -434,7 +348,7 @@ function LocalTripGuideIntro() {
                   >
                     <strong>&nbsp;&nbsp;&nbsp;[STEP 3]</strong> 프로그램 운영
                   </h3>
-                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
                     <ul>
                       <li>70명 이상의 <strong>전문 운영팀</strong>과 7개 언어를 커버하는 <strong>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
                       <li>현지 문화를 즐겁게 체험할 수 있는 동시에 여행자의 <strong>안전</strong>에 초점을 맞춘 운영</li>
@@ -472,7 +386,7 @@ function LocalTripGuideIntro() {
                   >
                     <strong>&nbsp;&nbsp;&nbsp;[STEP 4]</strong> 결과 보고
                   </h3>
-                  <h4 style={{ margin: '5px', lineHeight: '1.6' }}>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
                     <ul>
                       <li><strong>2~3일</strong> 내로 받아볼 수 있는 상세 결과 보고서</li>
                       <li>높은 응답률을 기반으로 한 <strong>만족도/피드백</strong> 공유</li>
@@ -504,7 +418,7 @@ function LocalTripGuideIntro() {
               fontSize: "calc(12px + 0.5vw)",
             }}
           >
-            아직 고민되시나요? <a href="www.example.com" style={{ color: 'green', textDecoration: 'underline' }}>로컬트립가이드 매니저와 상담</a>해보세요.<br />
+            아직 고민되시나요? <a href="www.example.com" style={{ color: '#00A86C', textDecoration: 'underline' }}>로컬트립가이드 매니저와 상담</a>해보세요.<br />
             맞춤형 프로그램 기획부터 견적 산출까지 무료로 상담해드립니다.
           </h4>
           

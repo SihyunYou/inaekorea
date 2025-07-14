@@ -64,7 +64,7 @@ function EnaeKorea() {
               늘 즐겁게 일하고, 진심으로 커뮤니티와 사회에<br />기여할 수 있는 솔루션을 고민하는 사람들이 모여 있습니다.  
             </h4>
 
-            <br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
             <div>
             <h2 className="title" style={{ margin: '10px' }}>우리의 미션</h2>
             <h3 className="title" style={{ fontWeight: '800', margin: '10px' }}>
@@ -74,7 +74,7 @@ function EnaeKorea() {
             </h3>
             </div>
 
-            <br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <h2 className="title" style={{ margin: '10px' }}>히스토리</h2>
     <table className="modern-table" style={{ marginTop: '30px' }}>
@@ -112,7 +112,7 @@ function EnaeKorea() {
     </table>
 </div>
 
-            <br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
             <Row>
               <Col className="ml-auto mr-auto" md="6">
                 <h2 className="title text-center">이내코리아의 팀원들</h2>
@@ -230,7 +230,7 @@ function EnaeKorea() {
             </Row>
           </Container>
 
-            <br /><br /><br /><br />
+            <br /><br /><br /><br /><br /><br />
 <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
             <h2 className="title" style={{ margin: '10px' }}>이내코리아는 이렇게 일해요</h2>
     <table style={{ marginTop: '30px', width: '100%', maxWidth: '800px', marginLeft: '70px' }}>
