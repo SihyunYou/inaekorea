@@ -36,18 +36,18 @@ function IndexNavbar() {
             <NavLink href="/">
 <img
   alt="..."
-  src={require("assets/img/logo-footer.png")}
+  src={require("assets/img/logo-localtripguide.png")}
   style={{
-    width: 'calc(20px + 1vw)', 
-    height: 'calc(20px + 1vw)',           
+    width: 'calc(84px + 2vw)',
     display: 'block'       
   }}
-/>        </NavLink>
+/>
+</NavLink>
           </NavItem>
 <div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'center' }}>
           <NavItem style={{ cursor: 'pointer' }}>
             <NavLink href="/">
-              <h4 style={{ margin: 'auto', marginTop: '1px' }}>이내코리아</h4>
+              <span style={{ fontSize: 'calc(0.6rem + 0.3vw)', fontWeight: '600' }}>이내코리아</span>
             </NavLink>
           </NavItem>
 
@@ -56,8 +56,8 @@ function IndexNavbar() {
               href="mailto:enae.korea@gmail.com"
               id="email-tooltip"
               style={{
-                width: "42px",
-                height: "42px",
+                width: "48px",
+                height: "48px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",

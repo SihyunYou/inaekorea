@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import './PortpolioViewer.css';
+import CardSlider from './CardSlider.js';
 
 const portfolioData = [
   {
     id: 1,
-    name: "천안/아산",
+    name: "천안아산",
     contents: {
       "여행 프로그램": [
         { title: "외암 민속마을", duration: "1h 30", hot: true },
@@ -102,16 +103,17 @@ const portfolioData = [
   },
 ];
 
-const buttonSize = 90;
-const visibleCount = 5;
+const buttonSize = 80.8;
+const visibleCount = 6;
 
 const mod = (n, m) => ((n % m) + m) % m;
 
 export default function PortfolioViewer() {
+  const [currentName, setCurrentName] = useState('천안아산');
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const visibleItems = Array(24).fill(portfolioData).flat(); // 24배 반복
-  const middleIndex = portfolioData.length * 12; // 중간 지점 (12배)
+  const middleIndex = portfolioData.length * 12 + 2;
   const offsetIndex = middleIndex + selectedIndex;
 
   const translateX = (offsetIndex - Math.floor(visibleCount / 2)) * (buttonSize + 10.7); // 중앙 정렬
@@ -120,7 +122,7 @@ export default function PortfolioViewer() {
 
   return (
     <div className="container py-4">
-      <h3 className="fw-bold mb-4 text-center">프로그램</h3>
+      <h6 className="fw-bold mb-4 text-center">프로그램</h6>
 
       {/* 상단 캐러셀 */}
       <div className="d-flex align-items-center justify-content-center mb-4">
@@ -150,6 +152,8 @@ export default function PortfolioViewer() {
             style={{
               transform: `translateX(-${translateX}px)`,
               transition: "transform 0.3s ease",
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
             {visibleItems.map((item, i) => {
@@ -178,7 +182,9 @@ export default function PortfolioViewer() {
                   style={{
                     width: isSelected ? 90 : buttonSize,
                     height: isSelected ? 90 : buttonSize,
-                    fontSize: "0.8rem",
+                    fontSize: "1rem",
+                    fontWeight: '700',
+                    fontFamily: 'Pretendard',
                     textAlign: "center",
                     borderRadius: "10px",
                     marginRight: "10px",
@@ -191,6 +197,7 @@ export default function PortfolioViewer() {
                     cursor: "pointer"
                   }}
                   aria-pressed={isSelected}
+                  onClick={() => setCurrentName(item.name)}
                 >
                   {item.name}
                 </button>
@@ -217,79 +224,7 @@ export default function PortfolioViewer() {
         </button>
       </div>
 
-      {/* 콘텐츠 영역 */}
-      <div>
-        <h3 className="fw-bold mb-3 text-center">콘텐츠</h3>
-        {Object.entries(selectedProgram.contents).map(([category, items]) => {
-          if (!items.length) return null;
-
-          return (
-            <div key={category} className="mb-3">
-              <h5 className="fw-bold text-center mb-3">{category}</h5>
-              <div
-                className="row"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                {items.map(({ title, duration, hot }, idx) => (
-                  <div
-                    className="col-md-3"
-                    key={idx}
-                    style={{ textAlign: 'center' }}
-                  >
-                    <div>
-                      <img
-                        src={require(`assets/img/${title}.png`)}
-                        className="program-image"
-                      />
-                    </div>
-                    <h5
-                      style={{
-                        fontSize: '18px',
-                        fontWeight: '600',
-                        marginTop: '15px',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        gap: '6px',
-                        alignItems: 'center',
-                        whiteSpace: 'normal',
-                      }}
-                    >
-                      <div>
-                        <span>{title}&nbsp;</span>
-                        <span
-                          style={{
-                            fontWeight: 'normal',
-                            fontSize: '14px',
-                            color: '#666',
-                            marginTop: '1px',
-                          }}
-                        >
-                          ({duration})
-                        </span>
-                      </div>
-                      {hot && (
-                        <span
-                          style={{
-                            color: '#8B004B',
-                            fontSize: '15px',
-                            fontWeight: 'bold',
-                          }}
-                        >
-                          HOT
-                        </span>
-                      )}
-                    </h5>
-                  </div>
-                ))}
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <CardSlider selectedName={currentName} />
     </div>
   );
 }

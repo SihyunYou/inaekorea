@@ -1,0 +1,121 @@
+.game-section {
+  padding: 60px 50px;
+  background-color: #00A86C;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.line-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.custom-carousel .item {
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: all 0.4s ease-in-out;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+}
+
+.custom-carousel .item.active {
+  transform: scale(1.05);
+  opacity: 1;
+  z-index: 2;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+.image-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  pointer-events: none;
+}
+
+.item-desc {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 2;
+  color: #fff;
+  text-align: left;
+  transition: all 0.4s ease-in-out;
+  transform: translateY(calc(100% - 60px));
+}
+
+.custom-carousel .item.active .item-desc {
+  transform: none;
+}
+
+.item-desc h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.item-desc p {
+  margin: 0;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease-in-out 0.2s;
+}
+
+.custom-carousel .item.active .item-desc p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsive */
+@media (max-width: 991px) {
+  .custom-carousel .item {
+    height: 330px;
+  }
+  .custom-carousel .item.active {
+    transform: scale(1.04);
+  }
+  .item-desc h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .game-section {
+    padding: 30px 15px;
+  }
+  .custom-carousel .item {
+    height: 280px;
+  }
+  .item-desc {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    transform: translateY(calc(100% - 50px));
+  }
+  .item-desc h3 {
+    font-size: 18px;
+  }
+}

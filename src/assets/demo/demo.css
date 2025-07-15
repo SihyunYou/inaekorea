@@ -9,7 +9,41 @@
 @font-face { font-family: 'Pretendard'; font-weight: 1000; font-style: normal; src: url('https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/Pretendard-Black.otf') format('opentype');}
 
 body {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, 'Noto Sans KR', sans-serif;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  line-height: 1.5;
+  color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5em;
+}
+
+p {
+  font-size: calc(0.7rem + 0.36vw);
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+h1 {
+  font-size: calc(2.5rem + 1.5vw);
+}
+h2 {
+  font-size: calc(2.2rem + 1.32vw);
+}
+h3 {
+  font-size: calc(1.9rem + 1.14vw);
+}
+h4 {
+  font-size: calc(1.6rem + 0.9vw);
+}
+h5 {
+  font-size: calc(1.3rem + 0.72vw);
+}
+h6 {
+  font-size: calc(1rem + 0.54vw);
 }
 
 .tim-row {
@@ -602,6 +636,8 @@ body {
 .custom-outline-button {
   border: 2px solid #00A86C;
   color: #00A86C;
+  font-family: Pretendard;
+  width: auto;
 }
 .custom-outline-button:hover {
   background-color: #00A86C;
@@ -641,4 +677,8 @@ body {
 
 .modern-table tr:hover {
   background-color: #efefef; /* hover 효과도 무채색 계열 */
+}
+
+.plus-list li::marker {
+  content: "+  ";
 }

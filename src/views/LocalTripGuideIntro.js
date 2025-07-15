@@ -69,7 +69,7 @@ const HorizontalTimeline = () => {
             >
               {step.icon}
             </div>
-            <h4 style={{ margin: '0' }}>{step.title}</h4>
+            <h6 style={{ margin: '0' }}>{step.title}</h6>
 
             {/* 연결선 */}
 {index !== steps.length - 1 && (
@@ -131,23 +131,23 @@ function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
   return (
     <motion.div
       className="box-no-border"
-      style={{ padding: "5px" }}
+      style={{ backgroundColor: "#00A86A", marginTop: '2.5vh', borderRadius: '12px' }}
       ref={ref}
       initial={{ scale: 0.8, opacity: 0.2 }}
       animate={isVisible ? { scale: 1.1, opacity: 1 } : {}}
       transition={{ duration: 1, ease: "easeOut" }}
     >
       <img src={imgSrc} style={{ width: "80%" }} />
-      <h1 style={{ fontSize: "calc(19px + 0.7vw)", fontWeight: "900", marginTop: "10px", marginBottom: 0 }}>
+      <h6 style={{ fontWeight: "900", color: 'white', margin: '8px 0' }}>
         {isVisible ? (
           <CountUp end={end} duration={duration} suffix={suffix} separator="," />
         ) : (
           "0"
         )}
-      </h1>
-      <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
-        <strong>{label}</strong>
-      </h4>
+      </h6>
+      <h6 style={{ color: 'white' }}>
+        {label}
+      </h6>
     </motion.div>
   );
 }
@@ -186,39 +186,36 @@ function LocalTripGuideIntro() {
             <br />
             <br />
 
-          <h2
-            className="title"
+          <h4
             style={{
-              fontSize: "calc(18px + 0.6vw)",
               textAlign: "center",
-              margin: "0.8vh",
+              margin: "1vh",
             }}
           >
-            <strong>로컬트립가이드</strong>는 <br /> 검증된 솔루션입니다.
-          </h2>
-          <h4
+            <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>는 <br /> 검증된 솔루션입니다.
+          </h4>
+          <h6
             style={{
               textAlign: "center",
               margin: 0,
               marginBottom: "1.6vh",
               color: "#666",
-              fontSize: "calc(12px + 0.5vw)",
             }}
           >
             이미 많은 대학과 학생들이 로컬트립가이드를 경험했습니다.
-          </h4>
+          </h6>
           <Container>
-<Row>
+<Row style={{ marginTop: '8vh' }}>
   <Col xs="6" md="3">
     <StatBox imgSrc={require("assets/img/fruit1.png")} end={10} suffix="+" label="참여 대학" duration={5}/>
   </Col>
-  <Col xs="6" md="3">
+  <Col xs="6" md="3" style={{ marginTop: '10vh' }}>
     <StatBox imgSrc={require("assets/img/fruit2.png")} end={1500} suffix="+" label="참여 유학생" duration={2}/>
   </Col>
   <Col xs="6" md="3">
     <StatBox imgSrc={require("assets/img/fruit3.png")} end={50} suffix="+" label="진행 프로그램 수" duration={4}/>
   </Col>
-  <Col xs="6" md="3">
+  <Col xs="6" md="3" style={{ marginTop: '10vh' }}>
     <StatBox imgSrc={require("assets/img/fruit4.png")} end={20} suffix="+" label="보유 프로그램 수" duration={4}/>
   </Col>
 </Row>
@@ -236,27 +233,24 @@ function LocalTripGuideIntro() {
             <br />
             <br />
             <br />
-          <h2
-            className="title"
+          <h4
             style={{
-              fontSize: "calc(18px + 0.6vw)",
               textAlign: "center",
               margin: "0.8vh",
             }}
           >
             <strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>의<br />파트너를 확인해보세요.
-          </h2>
-          <h4
+          </h4>
+          <h6
             style={{
               textAlign: "center",
               margin: 0,
               marginBottom: "1.6vh",
               color: "#666",
-              fontSize: "calc(12px + 0.5vw)",
             }}
           >
-            로컬트립가이드는 수많은 대학교 네트워크를 보유 중입니다.
-          </h4>
+            로컬트립가이드는 수많은 네트워크를 보유 중입니다.
+          </h6>
 <div class="slider-wrapper left">
   <div class="item item1"><img src={require("assets/img/충남대.webp")} /></div>
   <div class="item item2"><img src={require("assets/img/남서울대.png")} /></div>
@@ -264,7 +258,8 @@ function LocalTripGuideIntro() {
   <div class="item item4"><img src={require("assets/img/나사렛대.jpg")} /></div>
   <div class="item item5"><img src={require("assets/img/선문대.jpg")} /></div>
   <div class="item item6"><img src={require("assets/img/백석대.png")} /></div>
-  <div class="item item6"><img src={require("assets/img/순천향대.png")} /></div>
+  <div class="item item7"><img src={require("assets/img/순천향대.png")} /></div>
+  <div class="item item8"><img src={require("assets/img/아트뮤.png")} /></div>
 </div>
 {/*<div class="slider-wrapper right">
   <div class="item item1"></div>
@@ -288,27 +283,24 @@ function LocalTripGuideIntro() {
             <br />
             <br />
 
-            <h2
-              className="title"
+            <h4
               style={{
-                fontSize: "calc(18px + 0.6vw)",
                 textAlign: "center",
                 margin: "0.8vh",
               }}
             >
-              <strong>로컬트립가이드</strong>의<br/>포트폴리오를 확인해보세요!
-            </h2>
-          <h4
+              <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>의<br/>포트폴리오를 확인해보세요!
+            </h4>
+          <h6
             style={{
               textAlign: "center",
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
-              fontSize: "calc(12px + 0.5vw)",
             }}
           >
             고객을 위한 수많은 프로그램과 콘텐츠가 준비되어 있습니다.
-          </h4>
+          </h6>
             <PortpolioViewer />
 
             <br />
@@ -319,28 +311,27 @@ function LocalTripGuideIntro() {
             <br />
             <br />
             <br />
+            <br />
+            <br />
 
-            <h2
-              className="title"
+            <h4
               style={{
-                fontSize: "calc(18px + 0.6vw)",
                 textAlign: "center",
-                margin: "0.8vh",
+                margin: "1vh",
               }}
             >
-              <strong>로컬트립가이드</strong>는<br/>체계적인 프로세스로 이루어집니다.
-            </h2>
-          <h4
+              <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>는<br/>체계적인 프로세스로 이루어집니다.
+            </h4>
+          <h6
             style={{
               textAlign: "center",
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
-              fontSize: "calc(12px + 0.5vw)",
             }}
           >
             처음부터 끝까지, 로컬트립가이드가 책임지고 문화체험 운영을 도와드립니다.
-          </h4>
+          </h6>
           <HorizontalTimeline />
 
            <br /><br />
@@ -358,19 +349,16 @@ function LocalTripGuideIntro() {
                     justifyContent: "center",
                   }}
                 >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
-                  >
-                    <strong>&nbsp;&nbsp;&nbsp;STEP 1.</strong> 프로그램 상담
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul>
+                  <h5 style={{ marginTop: '30px', marginBottom: '10px' }}>
+                    <strong>&nbsp;&nbsp;STEP 1.</strong> 프로그램 상담
+                  </h5>
+                  <h6 style={{ margin: '0' }}>
+                    <ul class="plus-list" style={{ lineHeight: '1.5' }}>
                       <li>정확한 프로그램 기획을 위한 <strong style={{ color: '#00A86C' }}>1:1 고객 상담</strong></li>
-                      <li><strong style={{ color: '#00A86C' }}>고객 맞춤형</strong> 프로그램 및 견적을 위한 다각도 분석</li>
-                      <li>상단 <strong style={{ color: '#00A86C' }}>전화/이메일/인스타그램</strong>으로 상담 문의 가능</li>
+                      <li><strong style={{ color: '#00A86C' }}>고객 맞춤형</strong> 프로그램 및 견적 위한 다각도 분석</li>
+                      <li>상단 <strong style={{ color: '#00A86C' }}>전화/메일/인스타그램</strong>으로 상담 문의 가능</li>
                     </ul>
-                  </h4>
+                  </h6>
                 </Col>
               </Row>
             </Container>
@@ -387,19 +375,14 @@ function LocalTripGuideIntro() {
                     textAlign: 'right'
                   }}
                 >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
-                  >
+                  <h5 style={{ marginTop: '30px', marginBottom: '10px' }}>
                     <strong>&nbsp;&nbsp;&nbsp;STEP 2.</strong> 맞춤형 기획
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul style={{ direction: "rtl", textAlign: "right", paddingRight: '20px' }}>
-                      <li><strong style={{ color: '#00A86C' }}>맞춤형</strong> 운영 시스템, 이벤트 기획</li>
-                      <li>편성 예산을 고려한 <strong style={{ color: '#00A86C' }}>최저가, 최적</strong>의 견적 확보</li>
-                      <li><strong style={{ color: '#00A86C' }}>이동수단, 식당, 보험</strong> 등의 애로사항을 한번에</li>
-                    </ul>
-                  </h4>
+                  </h5>
+                  <h6 style={{ margin: '0' }}>
+                      <strong style={{ color: '#00A86C' }}>맞춤형</strong> 운영 시스템, 이벤트 기획&nbsp;&nbsp;&nbsp;+<br />
+                      편성 예산을 고려한 <strong style={{ color: '#00A86C' }}>최저가, 최적</strong>의 견적 확보 &nbsp;&nbsp;+<br />
+                      <strong style={{ color: '#00A86C' }}>이동수단, 식당, 보험</strong> 등의 애로사항을 한번에 &nbsp;&nbsp;+<br />
+                  </h6>
                 </Col>
                 <Col lg="6" md="12">
                   <SlideInSection imageSrc={require("assets/img/bg2.png")} width="calc(110px + 11vw)" />
@@ -421,19 +404,16 @@ function LocalTripGuideIntro() {
                     justifyContent: "center",
                   }}
                 >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
-                  >
+                  <h5 style={{ marginTop: '30px', marginBottom: '10px' }}>
                     <strong>&nbsp;&nbsp;&nbsp;STEP 3.</strong> 프로그램 운영
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul>
-                      <li>70명 이상의 <strong style={{ color: '#00A86C' }}>전문 운영팀</strong>과 7개 언어를 커버하는 <strong style={{ color: '#00A86C' }}>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
-                      <li>현지 문화를 즐겁게 체험할 수 있는 동시에 여행자의 <strong style={{ color: '#00A86C' }}>안전</strong>에 초점을 맞춘 운영</li>
+                  </h5>
+                  <h6 style={{ margin: '0' }}>
+                    <ul class="plus-list" style={{ lineHeight: '1.5' }}>
+                      <li><strong style={{ color: '#00A86C' }}>전문 운영팀</strong>과 <strong style={{ color: '#00A86C' }}>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
+                      <li>여행자의 <strong style={{ color: '#00A86C' }}>안전</strong>에 초점을 맞춘 운영</li>
                       <li>흥미와 선물을 동시에 챙길 수 있는 <strong style={{ color: '#00A86C' }}>체험형 프로그램</strong> 운영</li>
                     </ul>
-                  </h4>
+                  </h6>
                 </Col>
               </Row>
             </Container>
@@ -447,21 +427,17 @@ function LocalTripGuideIntro() {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    textAlign: 'right',
                   }}
                 >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0', textAlign: 'right' }}
-                  >
+                  <h5 style={{ marginTop: '30px', marginBottom: '10px' }}>
                     <strong>&nbsp;&nbsp;&nbsp;STEP 4.</strong> 결과 보고
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul style={{ direction: "rtl", textAlign: "right", paddingRight: '20px' }}>
-                      <li><strong style={{ color: '#00A86C' }}>2-3일</strong> 내로 받아볼 수 있는 상세 결과 보고서</li>
-                      <li>높은 응답률을 기반으로 한 <strong style={{ color: '#00A86C' }}>만족도/피드백</strong> 공유</li>
-                      <li>빠른 실행력으로 인터넷 기사 노출을 통한 <strong style={{ color: '#00A86C' }}>언론 홍보</strong></li>
-                    </ul>
-                  </h4>
+                  </h5>
+                  <h6 style={{ margin: '0' }}>
+                      <strong style={{ color: '#00A86C' }}>2-3일</strong> 내로 받아볼 수 있는 상세 결과 보고서&nbsp;&nbsp;+<br />
+                      높은 응답률을 기반으로 한 <strong style={{ color: '#00A86C' }}>만족도/피드백</strong> 공유&nbsp;&nbsp;+<br />
+                      빠른 실행력으로 기사 노출을 통한 <strong style={{ color: '#00A86C' }}>언론 홍보</strong>&nbsp;&nbsp;+
+                  </h6>
                 </Col>
                 <Col lg="6" md="12">
                   <SlideInSection imageSrc={require("assets/img/bg4.png")} width="calc(120px + 12vw)" />
@@ -479,35 +455,32 @@ function LocalTripGuideIntro() {
             <br />
 
 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-            <h2
-              className="title"
+            <h4
               style={{
-                fontSize: "calc(18px + 0.6vw)",
                 textAlign: "center",
                 margin: "0.8vh",
               }}
             >
               지금 무료로 상담 받아보세요!
-            </h2>
-          <h4
+            </h4>
+          <h6
             style={{
               textAlign: "center",
               margin: 0,
               marginBottom: "2vh",
-              color: "#666",
-              fontSize: "calc(12px + 0.5vw)",
+              color: "#666"
             }}
           >
             아직 고민되시나요? <a href="www.example.com" style={{ color: '#00A86C', textDecoration: 'underline' }}>로컬트립가이드 매니저와 상담</a>해보세요.<br />
             맞춤형 프로그램 기획부터 견적 산출까지 무료로 상담해드립니다.
-          </h4>
+          </h6>
           
 <a
   href="https://drive.google.com/file/d/1anJwDELyp2M6pJNY6GWXzYOlmRcgc2sw/view"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <button className="custom-outline-button">서비스 소개서</button>
+  <button className="custom-outline-button"><h6 style={{ margin: '5px' }}>서비스 소개서</h6></button>
 </a>
           </div>
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

@@ -41,31 +41,21 @@ function IndexHeader() {
     }, []);
 
     const slides = [
-        require("assets/img/header1.jpg"),
+        require("assets/img/header1.png"),
         require("assets/img/header2.png"),
         require("assets/img/header3.jpg"),
-        require("assets/img/header4.jpg"),
-    ];
-
-    const slideTexts = [
-        "부여, 백제문화단지",
-        "아산, 외암민속마을",
-        "공주, 공산성",
-        "전주, 한옥마을",
+        require("assets/img/header4.png"),
     ];
 
     return (
         <section className="testimonials" ref={pageHeader}>
-            <div className="text-overlay">
-                <h3>
-                    대학교 <strong className="green">국제교류처</strong>를 위한<br />
-                    외국인 유학생 <strong className="green">문화체험</strong> 통합 솔루션
-                </h3>
-                <img
-                    alt="로고"
-                    src={require("assets/img/logo-localtripguide.png")}
-                    className="logo-image"
-                />
+            <div className="text-overlay" style={{ marginLeft: 'calc(40px + 1.8vw)' }}>
+              <h1>
+                <strong className="green">국제교류처</strong>를 위한,<br />
+                <strong className="green">유학생</strong>을 위한,<br />
+                <img src={require("assets/img/logo-localtripguide.png")} />
+              </h1>
+              <h6>전국 대학교들이 주목하는 단 하나의 문화체험 솔루션</h6>
             </div>
 
             <Slider {...settings}>
@@ -76,9 +66,6 @@ function IndexHeader() {
                             src={src}
                             alt={`slide-${idx}`}
                         />
-                        <div className={`slide-caption ${idx === activeIndex ? 'visible' : 'hidden'}`}>
-                            {slideTexts[idx]}
-                        </div>
                     </div>
                 ))}
             </Slider>
