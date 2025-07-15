@@ -1,0 +1,74 @@
+.kakao-chat-container {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Pretendard, sans-serif;
+}
+
+/* 상담하기 말풍선 */
+.kakao-label {
+  position: relative;
+  background-color: #4B3B00;
+  color: #ffe812;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: floatText 2s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+/* 말풍선 아래 화살표 */
+.kakao-label::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #4B3B00;
+}
+
+/* 버튼 스타일 */
+.kakao-button {
+  background-color: #ffe812;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 12px rgba(250, 217, 97, 0.6);
+}
+
+.kakao-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(250, 217, 97, 0.8);
+}
+
+.kakao-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* 텍스트 살짝 떠다니는 효과 */
+@keyframes floatText {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}

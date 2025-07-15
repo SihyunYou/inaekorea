@@ -77,6 +77,7 @@ function IndexNavbar() {
               href="https://www.instagram.com/localtripguide.official"
               target="_blank"
               id="instagram-tooltip"
+              style={{ marginTop: '-3px' }}
             >
               <i className="fab fa-instagram" style={{ fontSize: "16px" }}></i>
             </NavLink>

@@ -11,6 +11,100 @@ import { FaSchool, FaBriefcase } from "react-icons/fa";
 import PortpolioViewer from "./index-sections/PortpolioViewer.js";
 import CountUp from "react-countup";
 import { MdArrowDownward } from "react-icons/md";
+import SlideInSection from "./SlideInSection.js";
+import "./index-sections/InfiniteCarousel.css";
+import { motion } from "framer-motion";
+import KakaoChatButton from "./KakaoChatButton.js";
+
+const steps = [
+  {
+    title: "프로그램 상담",
+    icon: <FaSchool />,
+  },
+  {
+    title: "맞춤형 기획",
+    icon: <FaBriefcase />,
+  },
+  {
+    title: "프로그램 운영",
+    icon: <FaSchool />,
+  },
+  {
+    title: "결과 보고",
+    icon: <FaBriefcase />,
+  }
+];
+
+const HorizontalTimeline = () => {
+  return (
+    <div style={{ padding: "40px 20px", overflowX: "auto" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "40px",
+          minWidth: "800px",
+          justifyContent: "center",
+          position: "relative"
+        }}
+      >
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            style={{
+              background: "#00A86C",
+              color: "#fff",
+              padding: "20px",
+              borderRadius: "12px",
+              minWidth: "200px",
+              flexShrink: 0,
+              position: "relative",
+              textAlign: "center"
+            }}
+          >
+            <div
+              style={{
+                fontSize: "24px",
+                marginBottom: "10px"
+              }}
+            >
+              {step.icon}
+            </div>
+            <h4 style={{ margin: '0' }}>{step.title}</h4>
+
+            {/* 연결선 */}
+{index !== steps.length - 1 && (
+  <div
+    style={{
+      position: "absolute",
+      right: "-30px",
+      top: "50%",
+      width: "40px",
+      height: "2px",
+      backgroundColor: "#00A86C",
+      transform: "translateY(-50%)",
+      display: "flex",
+      alignItems: "center",
+    }}
+  >
+    {/* 화살촉 */}
+    <div
+      style={{
+        width: 0,
+        height: 0,
+        borderTop: "6px solid transparent",
+        borderBottom: "6px solid transparent",
+        borderLeft: "8px solid #00A86C",
+        marginLeft: "auto", // 오른쪽 끝에 붙임
+      }}
+    />
+  </div>
+)}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
   const ref = useRef();
@@ -29,13 +123,20 @@ function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // 초기 실행
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isVisible]);
 
   return (
-    <div className="box-no-border" style={{ padding: "5px" }} ref={ref}>
+    <motion.div
+      className="box-no-border"
+      style={{ padding: "5px" }}
+      ref={ref}
+      initial={{ scale: 0.8, opacity: 0.2 }}
+      animate={isVisible ? { scale: 1.1, opacity: 1 } : {}}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
       <img src={imgSrc} style={{ width: "80%" }} />
       <h1 style={{ fontSize: "calc(19px + 0.7vw)", fontWeight: "900", marginTop: "10px", marginBottom: 0 }}>
         {isVisible ? (
@@ -47,7 +148,7 @@ function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
       <h4 style={{ fontSize: "calc(14px + 0.5vw)" }}>
         <strong>{label}</strong>
       </h4>
-    </div>
+    </motion.div>
   );
 }
 
@@ -76,6 +177,15 @@ function LocalTripGuideIntro() {
     <>
       <div className="wrapper">
         <div className="main">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
           <h2
             className="title"
             style={{
@@ -100,20 +210,77 @@ function LocalTripGuideIntro() {
           <Container>
 <Row>
   <Col xs="6" md="3">
-    <StatBox imgSrc={require("assets/img/fruit1.png")} end={10} suffix="+" label="참여 대학" duration={3}/>
+    <StatBox imgSrc={require("assets/img/fruit1.png")} end={10} suffix="+" label="참여 대학" duration={5}/>
   </Col>
   <Col xs="6" md="3">
-    <StatBox imgSrc={require("assets/img/fruit2.png")} end={25} suffix="+" label="참여 학생 국적" duration={3}/>
+    <StatBox imgSrc={require("assets/img/fruit2.png")} end={1500} suffix="+" label="참여 유학생" duration={2}/>
   </Col>
   <Col xs="6" md="3">
-    <StatBox imgSrc={require("assets/img/fruit3.png")} end={1500} suffix="+" label="참여 외국인 학생" duration={2}/>
+    <StatBox imgSrc={require("assets/img/fruit3.png")} end={50} suffix="+" label="진행 프로그램 수" duration={4}/>
   </Col>
   <Col xs="6" md="3">
-    <StatBox imgSrc={require("assets/img/fruit3.png")} end={95} suffix="%" label="참여자 만족도" duration={3}/>
+    <StatBox imgSrc={require("assets/img/fruit4.png")} end={20} suffix="+" label="보유 프로그램 수" duration={4}/>
   </Col>
 </Row>
 
 
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          <h2
+            className="title"
+            style={{
+              fontSize: "calc(18px + 0.6vw)",
+              textAlign: "center",
+              margin: "0.8vh",
+            }}
+          >
+            <strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>의<br />파트너를 확인해보세요.
+          </h2>
+          <h4
+            style={{
+              textAlign: "center",
+              margin: 0,
+              marginBottom: "1.6vh",
+              color: "#666",
+              fontSize: "calc(12px + 0.5vw)",
+            }}
+          >
+            로컬트립가이드는 수많은 대학교 네트워크를 보유 중입니다.
+          </h4>
+<div class="slider-wrapper left">
+  <div class="item item1"><img src={require("assets/img/충남대.webp")} /></div>
+  <div class="item item2"><img src={require("assets/img/남서울대.png")} /></div>
+  <div class="item item3"><img src={require("assets/img/카이스트.jpg")} /></div>
+  <div class="item item4"><img src={require("assets/img/나사렛대.jpg")} /></div>
+  <div class="item item5"><img src={require("assets/img/선문대.jpg")} /></div>
+  <div class="item item6"><img src={require("assets/img/백석대.png")} /></div>
+  <div class="item item6"><img src={require("assets/img/순천향대.png")} /></div>
+</div>
+{/*<div class="slider-wrapper right">
+  <div class="item item1"></div>
+  <div class="item item2"></div>
+  <div class="item item3"></div>
+  <div class="item item4"></div>
+  <div class="item item5"></div>
+  <div class="item item6"></div>
+  <div class="item item7"></div>
+</div>*/}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             <br />
             <br />
@@ -150,6 +317,8 @@ function LocalTripGuideIntro() {
             <br />
             <br />
             <br />
+            <br />
+            <br />
 
             <h2
               className="title"
@@ -172,89 +341,75 @@ function LocalTripGuideIntro() {
           >
             처음부터 끝까지, 로컬트립가이드가 책임지고 문화체험 운영을 도와드립니다.
           </h4>
-            <VerticalTimeline>
-              <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.7' }}
-                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
-                iconStyle={{ background: '#00A86C', color: "#fff" }}
-                icon={<FaSchool />}
-              >
-                <div style={{ textAlign: viewportWidth < 768 ? "left" : "right" }}>
-                  <h3 className="vertical-timeline-element-title">
-                    프로그램 상담
-                  </h3>
-                  <p>
-                    + 문화체험 <strong>프로그램/콘텐츠 리스트</strong> 제공
-                    <br />
-                    + 학생 규모, 국적, 프로그램 목적 등 분석
-                  </p>
-                </div>
-              </VerticalTimelineElement>
+          <HorizontalTimeline />
 
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"           
-                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.8' }}
-                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
-                iconStyle={{ background: '#00A86C', color: "#fff" }}
-                icon={<FaBriefcase />}
-              >
-                <div>
-                  <h3 className="vertical-timeline-element-title">맞춤형 기획</h3>
-                  <p>
-                    + <strong>최적</strong>의 운영기획안 및 견적 제공
-                    <br />
-                    + 고객이 만족할 때까지 무제한 <strong>피드백</strong> 반영
-                  </p>
-                </div>
-              </VerticalTimelineElement>
-
-              <VerticalTimelineElement
-                className="vertical-timeline-element--education"
-                contentStyle={{ background: '#00A86C', color: "#fff", opacity: '0.9' }}
-                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
-                iconStyle={{ background: '#00A86C', color: "#fff" }}
-                icon={<FaSchool />}
-              >
-                <div style={{ textAlign: viewportWidth < 768 ? "left" : "right" }}>
-                  <h3 className="vertical-timeline-element-title">
-                    프로그램 운영
-                  </h3>
-                  <p>
-                    + <strong>안전</strong>한 문화체험 운영
-                    <br />
-                    + 다개국어 가능한 <strong>전문 운영팀</strong> 배치
-                  </p>
-                </div>
-              </VerticalTimelineElement>
-
-              <VerticalTimelineElement
-                className="vertical-timeline-element--work"
-                contentStyle={{ background: '#00A86C', color: "#fff" }}
-                contentArrowStyle={{ borderRight: "7px solid #00A86C" }}
-                iconStyle={{ background: '#00A86C', color: "#fff" }}
-                icon={<FaBriefcase />}
-              >
-                <div>
-                  <h3 className="vertical-timeline-element-title">결과 보고</h3>
-                  <p>
-                    + 신속한 상세 <strong>결과 보고서</strong> 제공
-                    <br />
-                    + 빠른 <strong>언론 홍보</strong> 및 인터넷 노출
-                  </p>
-                </div>
-              </VerticalTimelineElement>
-            </VerticalTimeline>
-
-           <br /><br /><br /><br />
+           <br /><br />
            <Container style={{ margin: '10vh 0' }}>
               <Row>
                 <Col lg="6" md="12">
-                  <img
-                    alt="..."
-                    className="img-raised"
-                    src={require("assets/img/bg3.jpg")}
-                  ></img>
+                  <SlideInSection imageSrc={require("assets/img/bg1.png")} width="calc(150px + 15vw)" />
+                </Col>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;STEP 1.</strong> 프로그램 상담
+                  </h3>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
+                    <ul>
+                      <li>정확한 프로그램 기획을 위한 <strong style={{ color: '#00A86C' }}>1:1 고객 상담</strong></li>
+                      <li><strong style={{ color: '#00A86C' }}>고객 맞춤형</strong> 프로그램 및 견적을 위한 다각도 분석</li>
+                      <li>상단 <strong style={{ color: '#00A86C' }}>전화/이메일/인스타그램</strong>으로 상담 문의 가능</li>
+                    </ul>
+                  </h4>
+                </Col>
+              </Row>
+            </Container>
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col
+                  lg="6"
+                  md="12"
+                  style={{
+                    marginBottom: "50px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-end",
+                    textAlign: 'right'
+                  }}
+                >
+                  <h3
+                    className="title"
+                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
+                  >
+                    <strong>&nbsp;&nbsp;&nbsp;STEP 2.</strong> 맞춤형 기획
+                  </h3>
+                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
+                    <ul style={{ direction: "rtl", textAlign: "right", paddingRight: '20px' }}>
+                      <li><strong style={{ color: '#00A86C' }}>맞춤형</strong> 운영 시스템, 이벤트 기획</li>
+                      <li>편성 예산을 고려한 <strong style={{ color: '#00A86C' }}>최저가, 최적</strong>의 견적 확보</li>
+                      <li><strong style={{ color: '#00A86C' }}>이동수단, 식당, 보험</strong> 등의 애로사항을 한번에</li>
+                    </ul>
+                  </h4>
+                </Col>
+                <Col lg="6" md="12">
+                  <SlideInSection imageSrc={require("assets/img/bg2.png")} width="calc(110px + 11vw)" />
+                </Col>
+              </Row>
+            </Container>
+           <Container style={{ margin: '10vh 0' }}>
+              <Row>
+                <Col lg="6" md="12">
+                  <SlideInSection imageSrc={require("assets/img/bg3.png")} />
                 </Col>
                 <Col
                   lg="6"
@@ -268,32 +423,22 @@ function LocalTripGuideIntro() {
                 >
                   <h3
                     className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0' }}
                   >
-                    <strong>&nbsp;&nbsp;&nbsp;[STEP 1]</strong> 프로그램 상담
+                    <strong>&nbsp;&nbsp;&nbsp;STEP 3.</strong> 프로그램 운영
                   </h3>
                   <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
                     <ul>
-                      <li>정확한 프로그램 기획을 위한 <strong>1:1 고객 상담</strong></li>
-                      <li><strong>고객 맞춤형</strong> 프로그램 및 견적을 위한 다각도 분석</li>
-                      <li>상단 <strong>전화/이메일/인스타그램</strong>으로 상담 문의 가능</li>
+                      <li>70명 이상의 <strong style={{ color: '#00A86C' }}>전문 운영팀</strong>과 7개 언어를 커버하는 <strong style={{ color: '#00A86C' }}>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
+                      <li>현지 문화를 즐겁게 체험할 수 있는 동시에 여행자의 <strong style={{ color: '#00A86C' }}>안전</strong>에 초점을 맞춘 운영</li>
+                      <li>흥미와 선물을 동시에 챙길 수 있는 <strong style={{ color: '#00A86C' }}>체험형 프로그램</strong> 운영</li>
                     </ul>
                   </h4>
                 </Col>
               </Row>
             </Container>
-           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
-           </div>
            <Container style={{ margin: '10vh 0' }}>
               <Row>
-                <Col lg="6" md="12">
-                  <img
-                    alt="..."
-                    className="img-raised"
-                    src={require("assets/img/bg1.jpg")}
-                  ></img>
-                </Col>
                 <Col
                   lg="6"
                   md="12"
@@ -306,98 +451,33 @@ function LocalTripGuideIntro() {
                 >
                   <h3
                     className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)" }}
+                    style={{ fontSize: "calc(18px + 0.6vw)", margin: '0', textAlign: 'right' }}
                   >
-                    <strong>&nbsp;&nbsp;&nbsp;[STEP 2]</strong> 맞춤형 기획
+                    <strong>&nbsp;&nbsp;&nbsp;STEP 4.</strong> 결과 보고
                   </h3>
                   <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul>
-                      <li><strong>맞춤형</strong> 운영 시스템, 이벤트 기획</li>
-                      <li>편성 예산을 고려한 <strong>최저가, 최적</strong>의 견적 확보</li>
-                      <li><strong>이동수단, 식당, 보험</strong> 등의 애로사항을 한번에</li>
+                    <ul style={{ direction: "rtl", textAlign: "right", paddingRight: '20px' }}>
+                      <li><strong style={{ color: '#00A86C' }}>2-3일</strong> 내로 받아볼 수 있는 상세 결과 보고서</li>
+                      <li>높은 응답률을 기반으로 한 <strong style={{ color: '#00A86C' }}>만족도/피드백</strong> 공유</li>
+                      <li>빠른 실행력으로 인터넷 기사 노출을 통한 <strong style={{ color: '#00A86C' }}>언론 홍보</strong></li>
                     </ul>
                   </h4>
                 </Col>
-              </Row>
-            </Container>
-           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
-           </div>
-           <Container style={{ margin: '10vh 0' }}>
-              <Row>
                 <Col lg="6" md="12">
-                  <img
-                    alt="..."
-                    className="img-raised"
-                    src={require("assets/img/bg4.jpg")}
-                  ></img>
-                </Col>
-                <Col
-                  lg="6"
-                  md="12"
-                  style={{
-                    marginBottom: "50px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)" }}
-                  >
-                    <strong>&nbsp;&nbsp;&nbsp;[STEP 3]</strong> 프로그램 운영
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul>
-                      <li>70명 이상의 <strong>전문 운영팀</strong>과 7개 언어를 커버하는 <strong>관광통역안내사</strong> 배치를 통한 체계화된 시스템</li>
-                      <li>현지 문화를 즐겁게 체험할 수 있는 동시에 여행자의 <strong>안전</strong>에 초점을 맞춘 운영</li>
-                      <li>흥미와 선물을 동시에 챙길 수 있는 <strong>체험형 프로그램</strong> 운영</li>
-                    </ul>
-                  </h4>
-                </Col>
-              </Row>
-            </Container>
-           <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-             <MdArrowDownward style={{ fontSize: 'calc(28px + 1vw)' }} />
-           </div>
-           <Container style={{ margin: '10vh 0' }}>
-              <Row>
-                <Col lg="6" md="12">
-                  <img
-                    alt="..."
-                    className="img-raised"
-                    src={require("assets/img/bg5.jpg")}
-                  ></img>
-                </Col>
-                <Col
-                  lg="6"
-                  md="12"
-                  style={{
-                    marginBottom: "50px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                  }}
-                >
-                  <h3
-                    className="title"
-                    style={{ fontSize: "calc(18px + 0.6vw)" }}
-                  >
-                    <strong>&nbsp;&nbsp;&nbsp;[STEP 4]</strong> 결과 보고
-                  </h3>
-                  <h4 style={{ fontSize: 'calc(12px + 0.4vw)', lineHeight: '1.6' }}>
-                    <ul>
-                      <li><strong>2~3일</strong> 내로 받아볼 수 있는 상세 결과 보고서</li>
-                      <li>높은 응답률을 기반으로 한 <strong>만족도/피드백</strong> 공유</li>
-                      <li>빠른 실행력으로 인터넷 기사 노출을 통한 <strong>언론 홍보</strong></li>
-                    </ul>
-                  </h4>
+                  <SlideInSection imageSrc={require("assets/img/bg4.png")} width="calc(120px + 12vw)" />
                 </Col>
               </Row>
             </Container>
 
-            <br /><br /><br /><br /><br /><br /><br /><br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
             <h2
               className="title"
@@ -434,6 +514,7 @@ function LocalTripGuideIntro() {
           </Container>
         </div>
       </div>
+      <KakaoChatButton />
     </>
   );
 }
