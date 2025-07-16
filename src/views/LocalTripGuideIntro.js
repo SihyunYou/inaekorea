@@ -194,6 +194,7 @@ function LocalTripGuideIntro() {
               margin: 0,
               marginBottom: "1.6vh",
               color: "#666",
+whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             이미 많은 대학과 학생들이 로컬트립가이드를 경험했습니다.
@@ -241,6 +242,7 @@ function LocalTripGuideIntro() {
               margin: 0,
               marginBottom: "1.6vh",
               color: "#666",
+whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             로컬트립가이드는 수많은 네트워크를 보유 중입니다.
@@ -291,6 +293,7 @@ function LocalTripGuideIntro() {
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
+whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             고객을 위한 수많은 프로그램과 콘텐츠가 준비되어 있습니다.
@@ -324,6 +327,7 @@ function LocalTripGuideIntro() {
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
+whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             처음부터 끝까지, 로컬트립가이드가 책임지고 문화체험 운영을 도와드립니다.
@@ -462,7 +466,7 @@ function LocalTripGuideIntro() {
   </li>
   <li style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start', gap: '8px' }}>
     <span>
-      빠른 실행력으로 기사 노출을 통한<strong style={{ color: '#00A86C' }}>언론 홍보</strong>
+      빠른 실행력으로 기사 노출을 통한 <strong style={{ color: '#00A86C' }}>언론 홍보</strong>
     </span>
     <span>+</span>
   </li>

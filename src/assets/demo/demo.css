@@ -690,3 +690,52 @@ h6 {
     text-decoration-thickness: 12px; /* 굵기 */
     text-underline-offset: -2px; /* 글자와 선 사이 거리 */
 }
+
+.responsive-table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+}
+
+/* 기본 PC 레이아웃 */
+.responsive-table td {
+  vertical-align: top;
+}
+
+/* 모바일 레이아웃 */
+@media (max-width: 768px) {
+  .responsive-table tr {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  /* 1행: 3개 셀 가로 정렬, 각각 비율 유지 */
+  .responsive-table tr:first-child td {
+    display: block;
+    flex-shrink: 0;
+  }
+  .responsive-table tr:first-child .col1 {
+    flex: 0 0 40%;
+  }
+  .responsive-table tr:first-child .col2,
+  .responsive-table tr:first-child .col3 {
+    flex: 0 0 30%;
+  }
+
+  /* 2행, 3행: 1열 숨기고, 2열과 3열이 각각 50%씩 */
+  .responsive-table tr:nth-child(2),
+  .responsive-table tr:nth-child(3) {
+    flex-wrap: wrap;
+  }
+  .responsive-table tr:nth-child(2) .col1,
+  .responsive-table tr:nth-child(3) .col1 {
+    display: none;
+  }
+  .responsive-table tr:nth-child(2) .col2,
+  .responsive-table tr:nth-child(3) .col2,
+  .responsive-table tr:nth-child(2) .col3,
+  .responsive-table tr:nth-child(3) .col3 {
+    flex: 0 0 50%;
+    box-sizing: border-box;
+  }
+}

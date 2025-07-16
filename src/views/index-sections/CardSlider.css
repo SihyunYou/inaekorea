@@ -17,31 +17,35 @@
   border-radius: 16px;
   transition: all 0.4s ease-in-out;
   opacity: 0.6;
-  width: 100%;
+  width: auto;
   height: 100%;
   cursor: pointer;
+  aspect-ratio: 1;
 }
 
 .custom-carousel .item.active {
   transform: scale(1.05);
   opacity: 1;
   z-index: 2;
+  aspect-ratio: 1;
 }
 
 .image-wrapper {
   position: relative;
-  width: 100%;
+  width: auto;
   height: 100%;
   border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 1;
 }
 
 .game-image {
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: cover;
   display: block;
   border-radius: 16px;
+  aspect-ratio: 1;
 }
 
 .image-gradient {
@@ -87,35 +91,4 @@
 .custom-carousel .item.active .item-desc p {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* responsive */
-@media (max-width: 991px) {
-  .custom-carousel .item {
-    height: 330px;
-  }
-  .custom-carousel .item.active {
-    transform: scale(1.04);
-  }
-  .item-desc h3 {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 767px) {
-  .game-section {
-    padding: 30px 15px;
-  }
-  .custom-carousel .item {
-    height: 280px;
-  }
-  .item-desc {
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    transform: translateY(calc(100% - 50px));
-  }
-  .item-desc h3 {
-    font-size: 18px;
-  }
 }

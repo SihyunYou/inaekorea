@@ -8,7 +8,7 @@ function DarkFooter() {
   return (
     <footer className="footer" data-background-color="black">
       <Container style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-        <nav>
+        <nav style={{ maxWidth: '60%' }}>
           <ul>
             <li>
                 상호명: 이내코리아<br />
