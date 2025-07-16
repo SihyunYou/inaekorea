@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './PortpolioViewer.css';
 import CardSlider from './CardSlider.js';
 
@@ -91,19 +91,9 @@ const portfolioData = [
       ],
     },
   },
-  {
-    id: 7,
-    name: "서울랜드",
-    contents: {
-      "여행 프로그램": [
-        { title: "서울랜드", duration: "종일", hot: true },
-      ],
-      "체험 프로그램": [],
-    },
-  },
 ];
 
-const buttonSize = 80.8;
+const buttonSize = 80.45;
 const visibleCount = 6;
 
 const mod = (n, m) => ((n % m) + m) % m;
@@ -111,6 +101,11 @@ const mod = (n, m) => ((n % m) + m) % m;
 export default function PortfolioViewer() {
   const [currentName, setCurrentName] = useState('천안아산');
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isNew, setIsNew] = useState(false);
+
+useEffect(() => {
+  setIsNew(true);
+}, [currentName]);
 
   const visibleItems = Array(24).fill(portfolioData).flat(); // 24배 반복
   const middleIndex = portfolioData.length * 12 + 2;
@@ -122,7 +117,21 @@ export default function PortfolioViewer() {
 
   return (
     <div className="container py-4">
-      <h6 className="fw-bold mb-4 text-center">프로그램</h6>
+  <div style={{ textAlign: 'center' }}>
+    <h6
+      className="fw-bold mb-4"
+      style={{
+        display: 'inline-block',
+        whiteSpace: 'nowrap',
+        backgroundColor: '#00A86C',
+        padding: '6px 12px',
+        borderRadius: '12px',
+        color: 'white'
+      }}
+    >
+      프로그램
+    </h6>
+  </div>
 
       {/* 상단 캐러셀 */}
       <div className="d-flex align-items-center justify-content-center mb-4">
@@ -160,47 +169,47 @@ export default function PortfolioViewer() {
               const realIndex = mod(i, portfolioData.length);
               const isSelected = realIndex === mod(selectedIndex, portfolioData.length);
               return (
-                <button
-                  key={`${i}-${item.id}`}
-                  onClick={() => {
-                    const centerIndex = mod(selectedIndex, portfolioData.length);
-                    const diff = realIndex - centerIndex;
+<button
+  key={`${i}-${item.id}`}
+  onClick={() => {
+    const centerIndex = mod(selectedIndex, portfolioData.length);
+    const diff = realIndex - centerIndex;
 
-                    // 최소 이동 거리 계산 (순환 고려)
-                    const adjustedDiff =
-                      Math.abs(diff) > portfolioData.length / 2
-                        ? diff > 0
-                          ? diff - portfolioData.length
-                          : diff + portfolioData.length
-                        : diff;
+    const adjustedDiff =
+      Math.abs(diff) > portfolioData.length / 2
+        ? diff > 0
+          ? diff - portfolioData.length
+          : diff + portfolioData.length
+        : diff;
 
-                    setSelectedIndex((prev) => prev + adjustedDiff);
-                  }}
-                  className={`d-flex align-items-center justify-content-center fw-bold ${
-                    isSelected ? "btn btn-primary" : "btn btn-outline-primary"
-                  }`}
-                  style={{
-                    width: isSelected ? 90 : buttonSize,
-                    height: isSelected ? 90 : buttonSize,
-                    fontSize: "1rem",
-                    fontWeight: '700',
-                    fontFamily: 'Pretendard',
-                    textAlign: "center",
-                    borderRadius: "10px",
-                    marginRight: "10px",
-                    whiteSpace: "normal",
-                    flexShrink: 0,
-                    padding: '5px',
-                    backgroundColor: isSelected ? '#00A86C' : 'transparent',
-                    color: isSelected ? 'white' : '#00A86C',
-                    border: '1px solid #00A86C',
-                    cursor: "pointer"
-                  }}
-                  aria-pressed={isSelected}
-                  onClick={() => setCurrentName(item.name)}
-                >
-                  {item.name}
-                </button>
+    setSelectedIndex((prev) => prev + adjustedDiff);
+    setCurrentName(item.name); // 지역명 변경!
+  }}
+  className={`d-flex align-items-center justify-content-center fw-bold ${
+    isSelected ? "btn btn-primary" : "btn btn-outline-primary"
+  }`}
+  style={{
+    width: isSelected ? 90 : buttonSize,
+    height: isSelected ? 90 : buttonSize,
+    fontSize: "1rem",
+    fontWeight: '700',
+    fontFamily: 'Pretendard',
+    textAlign: "center",
+    borderRadius: "10px",
+    marginRight: "10px",
+    whiteSpace: "normal",
+    flexShrink: 0,
+    padding: '5px',
+    backgroundColor: isSelected ? '#00A86C' : 'transparent',
+    color: isSelected ? 'white' : '#00A86C',
+    border: '1px solid #00A86C',
+    cursor: "pointer"
+  }}
+  aria-pressed={isSelected}
+>
+  {item.name}
+</button>
+
               );
             })}
           </div>

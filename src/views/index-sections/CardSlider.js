@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -99,17 +99,6 @@ const portfolioData = [
       ],
     },
   },
-  {
-    id: 7,
-    name: "서울랜드",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "서울랜드", hot: true },
-      ],
-      "체험 프로그램": [],
-    },
-  },
 ];
 
 const flattenPrograms = (data, selectedName) => {
@@ -132,9 +121,13 @@ const flattenPrograms = (data, selectedName) => {
   return result;
 };
 
-const CardSlider = ({ selectedName }) => {
+const CardSlider = ({ selectedName, isNew }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderItems = flattenPrograms(portfolioData, selectedName);
+
+  if (isNew) {
+    setActiveIndex(0);
+  }
 
   if (sliderItems.length === 0) {
     return <p>선택된 지역의 프로그램이 없습니다.</p>;
@@ -158,7 +151,21 @@ const CardSlider = ({ selectedName }) => {
 
   return (
     <section className="game-section">
-      <h6 style={{ marginBottom: "2.5vh" }}>콘텐츠</h6>
+  <div style={{ textAlign: 'center' }}>
+    <h6
+      className="fw-bold mb-4"
+      style={{
+        display: 'inline-block',
+        whiteSpace: 'nowrap',
+        backgroundColor: '#00A86C',
+        padding: '6px 12px',
+        borderRadius: '12px',
+        color: 'white'
+      }}
+    >
+      콘텐츠
+    </h6>
+  </div>
       <Slider {...settings} className="custom-carousel">
         {sliderItems.map((item, index) => (
           <div

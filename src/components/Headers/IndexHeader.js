@@ -12,7 +12,7 @@ function IndexHeader() {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 1000,
+        speed: 500,
         autoplay: true,
         autoplaySpeed: 4000,
         arrows: true,
@@ -49,13 +49,13 @@ function IndexHeader() {
 
     return (
         <section className="testimonials" ref={pageHeader}>
-            <div className="text-overlay" style={{ marginLeft: 'calc(40px + 1.8vw)' }}>
-              <h1>
+            <div className="text-overlay" style={{ margin: '0 4vw', marginTop: '2vh' }}>
+              <h1 className="special">
                 <strong className="green">국제교류처</strong>를 위한,<br />
                 <strong className="green">유학생</strong>을 위한,<br />
-                <img src={require("assets/img/logo-localtripguide.png")} />
+                <img src={require("assets/img/logo-localtripguide.png")} style={{ width: 'calc(8rem + 20vw)' }}/>
               </h1>
-              <h6>전국 대학교들이 주목하는 단 하나의 문화체험 솔루션</h6>
+              <h6 style={{ marginRight: '4vw', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>전국 대학교들이 주목하는 단 하나의 문화체험 솔루션</h6>
             </div>
 
             <Slider {...settings}>

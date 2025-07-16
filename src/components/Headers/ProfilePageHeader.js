@@ -30,13 +30,13 @@ function ProfilePageHeader() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/bg5.jpg") + ")"
+            backgroundImage: "url(" + require("assets/img/enaekorea.jpg") + ")"
           }}
           ref={pageHeader}
         ></div>
         <Container>
-          <h1 className="title" style={{ marginTop: '50px' }}>이내코리아</h1>
-          <h4 className="category">여행의 본질을 제공합니다</h4>
+          <h1 style={{ marginTop: '60px', marginBottom: '5px' }}>이내코리아</h1>
+          <h4 style={{ marginTop: '0', color: "#DDD" }}>여행의 본질을 제공합니다</h4>
           <img alt="..." src={require("assets/img/enae.webp")} style={{ marginTop: '30px' }}></img>
         </Container>
       </div>

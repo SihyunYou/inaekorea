@@ -36,9 +36,9 @@ function IndexNavbar() {
             <NavLink href="/">
 <img
   alt="..."
-  src={require("assets/img/logo-localtripguide.png")}
+  src={require("assets/img/logo-footer.png")}
   style={{
-    width: 'calc(84px + 2vw)',
+    width: 'calc(32px + 1.2vw)',
     display: 'block'       
   }}
 />
@@ -46,7 +46,7 @@ function IndexNavbar() {
           </NavItem>
 <div style={{ display: 'flex', flexDirection: 'row', alignItems: "center", justifyContent: 'center' }}>
           <NavItem style={{ cursor: 'pointer' }}>
-            <NavLink href="/">
+            <NavLink href="/enaekorea">
               <span style={{ fontSize: 'calc(0.6rem + 0.3vw)', fontWeight: '600' }}>이내코리아</span>
             </NavLink>
           </NavItem>
