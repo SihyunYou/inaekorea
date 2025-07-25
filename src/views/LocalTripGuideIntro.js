@@ -3,148 +3,115 @@ import React, { useState, useEffect, useRef } from "react";
 // core components
 import { Container, Button, Row, Col } from "reactstrap";
 import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import {
-  FaComments,     // 상담
-  FaLightbulb,    // 기획 아이디어
-  FaBus,          // 운영 (이동 포함)
-  FaClipboardCheck // 보고
+  FaComments, 
+  FaLightbulb,   
+  FaBus,         
+  FaClipboardCheck 
 } from "react-icons/fa";
-import PortpolioViewer from "./index-sections/PortpolioViewer.js";
-import CountUp from "react-countup";
-import { MdArrowDownward } from "react-icons/md";
-import SlideInSection from "./SlideInSection.js";
-import "./index-sections/InfiniteCarousel.css";
-import { motion } from "framer-motion";
-import KakaoChatButton from "./KakaoChatButton.js";
+import InfiniteCarousel from "./index-sections/InfiniteCarousel.js";
+import PortfolioViewer from "./index-sections/PortfolioViewer.js";
+import HorizontalTimeline from "./index-sections/HorizontalTimeline.js";
+import StatBox from "./index-sections/StatBox.js";
+import SlideInSection from "./index-sections/SlideInSection.js";
+import KakaoChatButton from "./index-sections/KakaoChatButton.js";
+import PrimaryButton from "./index-sections/PrimaryButton.js";
 
-const steps = [
+const portfolioData = [
   {
-    title: "프로그램 상담",
-    icon: <FaComments />,
+    id: 1,
+    name: "천안아산",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "외암 민속마을", hot: true },
+        { title: "독립 기념관", hot: true },
+        { title: "현충사", hot: false },
+        { title: "뚜쥬루 돌가마 마을", hot: false },
+      ],
+      "체험 프로그램": [
+        { title: "엿 만들기", hot: true },
+        { title: "천연 염색", hot: false },
+      ],
+    },
   },
   {
-    title: "맞춤형 기획",
-    icon: <FaLightbulb />,
+    id: 2,
+    name: "부여",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "백제 문화단지", hot: true },
+        { title: "정림사지", hot: false },
+      ],
+      "체험 프로그램": [
+        { title: "공예 체험", hot: true },
+        { title: "백제 의복 체험", hot: true },
+      ],
+    },
   },
   {
-    title: "프로그램 운영",
-    icon: <FaBus />,
+    id: 3,
+    name: "공주",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "공산성", hot: true },
+        { title: "공주 한옥마을", hot: true },
+      ],
+      "체험 프로그램": [
+        { title: "백제 왕실복 체험", hot: true },
+        { title: "삼색 인절미 체험", hot: true },
+        { title: "족욕 체험", hot: false },
+        { title: "전통 시장 체험", hot: false },
+      ],
+    },
   },
   {
-    title: "결과 보고",
-    icon: <FaClipboardCheck />,
-  }
+    id: 4,
+    name: "보령",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "석탄 박물관", hot: false },
+        { title: "대천 해수욕장", hot: true },
+      ],
+      "체험 프로그램": [
+        { title: "대천 스카이 바이크", hot: true },
+      ],
+    },
+  },
+  {
+    id: 5,
+    name: "군산",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "근대화 거리", hot: false },
+        { title: "경암동 철길 마을", hot: true },
+      ],
+      "체험 프로그램": [
+        { title: "교복 체험", hot: true },
+        { title: "전통과자 만들기 체험", hot: true },
+      ],
+    },
+  },
+  {
+    id: 6,
+    name: "전주",
+    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg",
+    contents: {
+      "여행 프로그램": [
+        { title: "전주 한옥마을", hot: true },
+        { title: "경기전", hot: false },
+        { title: "전동성당", hot: false },
+      ],
+      "체험 프로그램": [
+        { title: "전통 공예 체험", hot: true },
+        { title: "한복 체험", hot: true },
+      ],
+    },
+  },
 ];
-
-const HorizontalTimeline = () => {
-  return (
-    <div style={{ padding: "40px 20px", overflowX: "auto" }}>
-      <div
-        style={{
-          display: "flex",
-          gap: "40px",
-          minWidth: "800px",
-          justifyContent: "center",
-          position: "relative"
-        }}
-      >
-        {steps.map((step, index) => (
-          <div
-            key={index}
-            style={{
-              background: "#00A86C",
-              color: "#fff",
-              padding: "20px",
-              borderRadius: "12px",
-              minWidth: "200px",
-              flexShrink: 0,
-              position: "relative",
-              textAlign: "center"
-            }}
-          >
-            <div
-              style={{
-                fontSize: "24px",
-                marginBottom: "10px"
-              }}
-            >
-              {step.icon}
-            </div>
-            <h6 style={{ margin: '0' }}>{step.title}</h6>
-
-            {/* 연결선 */}
-{index !== steps.length - 1 && (
-  <div
-    style={{
-      position: "absolute",
-      right: "-28px",
-      top: "50%",
-      fontSize: '18px',
-      color: "#00A86C",
-      transform: "translateY(-50%)",
-      display: "flex",
-      alignItems: "center",
-    }}
-  >
-    ▶
-  </div>
-)}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
-  const ref = useRef();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!ref.current || isVisible) return;
-
-      const rect = ref.current.getBoundingClientRect();
-      const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
-
-      if (isInView) {
-        setIsVisible(true);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isVisible]);
-
-  return (
-    <motion.div
-      className="box-no-border"
-      style={{ backgroundColor: "#00A86A", marginTop: '2.5vh', borderRadius: '12px' }}
-      ref={ref}
-      initial={{ scale: 0.8, opacity: 0.2 }}
-      animate={isVisible ? { scale: 1.1, opacity: 1 } : {}}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
-      <img src={imgSrc} style={{ width: "80%" }} />
-      <h6 style={{ fontWeight: "900", color: 'white', margin: '8px 0' }}>
-        {isVisible ? (
-          <CountUp end={end} duration={duration} suffix={suffix} separator="," />
-        ) : (
-          "0"
-        )}
-      </h6>
-      <h6 style={{ color: 'white' }}>
-        {label}
-      </h6>
-    </motion.div>
-  );
-}
 
 function LocalTripGuideIntro() {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -194,7 +161,6 @@ function LocalTripGuideIntro() {
               margin: 0,
               marginBottom: "1.6vh",
               color: "#666",
-whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             이미 많은 대학과 학생들이 로컬트립가이드를 경험했습니다.
@@ -215,7 +181,6 @@ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
   </Col>
 </Row>
 
-
             <br />
             <br />
             <br />
@@ -228,44 +193,26 @@ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             <br />
             <br />
             <br />
-          <h4
-            style={{
-              textAlign: "center",
-              margin: "0.8vh",
-            }}
-          >
-            <strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>의<br />파트너를 확인해보세요.
-          </h4>
-          <h6
-            style={{
-              textAlign: "center",
-              margin: 0,
-              marginBottom: "1.6vh",
-              color: "#666",
-whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
-            }}
-          >
-            로컬트립가이드는 수많은 네트워크를 보유 중입니다.
-          </h6>
-<div class="slider-wrapper left">
-  <div class="item item1"><img src={require("assets/img/충남대.webp")} /></div>
-  <div class="item item2"><img src={require("assets/img/남서울대.png")} /></div>
-  <div class="item item3"><img src={require("assets/img/카이스트.jpg")} /></div>
-  <div class="item item4"><img src={require("assets/img/나사렛대.jpg")} /></div>
-  <div class="item item5"><img src={require("assets/img/선문대.jpg")} /></div>
-  <div class="item item6"><img src={require("assets/img/백석대.png")} /></div>
-  <div class="item item7"><img src={require("assets/img/백석문화대.png")} /></div>
-  <div class="item item8"><img src={require("assets/img/순천향대.png")} /></div>
-</div>
-{/*<div class="slider-wrapper right">
-  <div class="item item1"></div>
-  <div class="item item2"></div>
-  <div class="item item3"></div>
-  <div class="item item4"></div>
-  <div class="item item5"></div>
-  <div class="item item6"></div>
-  <div class="item item7"></div>
-</div>*/}
+            <h4
+                style={{
+                    textAlign: "center",
+                    margin: "0.8vh",
+                }}
+            >
+                <strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>
+                의<br />파트너를 확인해보세요.
+            </h4>
+            <h6
+                style={{
+                    textAlign: "center",
+                    margin: 0,
+                    marginBottom: "1.6vh",
+                    color: "#666",
+                }}
+            >
+                로컬트립가이드는 수많은 네트워크를 보유 중입니다.
+            </h6>
+            <InfiniteCarousel images={["충남대", "남서울대", "나사렛대", "카이스트", "선문대", "백석대", "백석문화대", "순천향대"]} />
             <br />
             <br />
             <br />
@@ -293,12 +240,11 @@ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
-whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             고객을 위한 수많은 프로그램과 콘텐츠가 준비되어 있습니다.
           </h6>
-            <PortpolioViewer />
+            <PortfolioViewer portfolioData={portfolioData} />
 
             <br />
             <br />
@@ -327,12 +273,28 @@ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
               margin: 0,
               marginBottom: "2vh",
               color: "#666",
-whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
             }}
           >
             처음부터 끝까지, 로컬트립가이드가 책임지고 문화체험 운영을 도와드립니다.
           </h6>
-          <HorizontalTimeline />
+          <HorizontalTimeline steps={[
+  {
+    title: "프로그램 상담",
+    icon: <FaComments />,
+  },
+  {
+    title: "맞춤형 기획",
+    icon: <FaLightbulb />,
+  },
+  {
+    title: "프로그램 운영",
+    icon: <FaBus />,
+  },
+  {
+    title: "결과 보고",
+    icon: <FaClipboardCheck />,
+  }
+]} />
 
            <br /><br />
            <Container style={{ margin: '10vh 0' }}>
@@ -514,7 +476,9 @@ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word'
   target="_blank"
   rel="noopener noreferrer"
 >
-  <button className="custom-outline-button"><h6 style={{ margin: '5px' }}>카카오톡 상담하기</h6></button>
+  <PrimaryButton>
+    <h6>카카오톡 상담하기</h6>
+  </PrimaryButton>
 </a>
           </div>
             <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

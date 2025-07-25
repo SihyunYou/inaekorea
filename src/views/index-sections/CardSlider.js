@@ -4,103 +4,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CardSlider.css";
 
-const portfolioData = [
-  {
-    id: 1,
-    name: "천안아산",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "외암 민속마을", hot: true },
-        { title: "독립 기념관", hot: false },
-        { title: "현충사", hot: false },
-        { title: "뚜쥬루 돌가마 마을", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "엿 만들기", hot: false },
-        { title: "천연 염색", hot: true },
-      ],
-    },
-  },
-  {
-    id: 2,
-    name: "부여",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/dota-2.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "백제 문화단지", hot: false },
-        { title: "정림사지", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "공예 체험", hot: true },
-        { title: "백제 의복 체험", hot: false },
-      ],
-    },
-  },
-  {
-    id: 3,
-    name: "공주",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "공산성", hot: false },
-        { title: "공주 한옥마을", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "백제 왕실복 체험", hot: false },
-        { title: "삼색 인절미 체험", hot: false },
-        { title: "족욕 체험", hot: false },
-        { title: "전통 시장 체험", hot: true },
-      ],
-    },
-  },
-  {
-    id: 4,
-    name: "보령",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "석탄 박물관", hot: false },
-        { title: "대천 해수욕장", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "대천 스카이 바이크", hot: true },
-      ],
-    },
-  },
-  {
-    id: 5,
-    name: "군산",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "근대화 거리", hot: false },
-        { title: "경암동 철길 마을", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "교복 체험", hot: false },
-        { title: "전통과자 만들기 체험", hot: true },
-      ],
-    },
-  },
-  {
-    id: 6,
-    name: "전주",
-    image: "https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg",
-    contents: {
-      "여행 프로그램": [
-        { title: "전주 한옥마을", hot: true },
-        { title: "경기전", hot: false },
-        { title: "전동성당", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "전통 공예 체험", hot: false },
-        { title: "한복 체험", hot: false },
-      ],
-    },
-  },
-];
-
 const flattenPrograms = (data, selectedName) => {
   const result = [];
   const item = data.find((d) => d.name === selectedName);
@@ -121,13 +24,15 @@ const flattenPrograms = (data, selectedName) => {
   return result;
 };
 
-const CardSlider = ({ selectedName, isNew }) => {
+const CardSlider = ({ portfolioData, selectedName, isNew }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderItems = flattenPrograms(portfolioData, selectedName);
 
+useEffect(() => {
   if (isNew) {
     setActiveIndex(0);
   }
+}, [isNew]);
 
   if (sliderItems.length === 0) {
     return <p>선택된 지역의 프로그램이 없습니다.</p>;

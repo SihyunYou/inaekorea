@@ -1,0 +1,29 @@
+.primary-button {
+  padding: 12px 20px;
+  border: 2px solid #00A86C;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.primary-button.default {
+  background-color: white;
+  color: #00A86C;
+}
+
+.primary-button.default:hover {
+  background-color: #00A86C;
+  color: white;
+}
+
+.primary-button.inverse {
+  background-color: #00A86C;
+  color: white;
+}
+
+.primary-button.inverse:hover {
+  background-color: white;
+  color: #00A86C;
+}

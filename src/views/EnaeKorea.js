@@ -222,22 +222,22 @@ function EnaeKorea() {
     {
       name: "임성준",
       position: "대표",
-      description: "전사 데이터를 통합 및 관리하며, 운영팀의 전산화를 지원합니다.",
-      keywords: "효율화, 계산과학",
+      description: "우헤헤헤",
+      keywords: "밑져야 본전",
       image: require("assets/img/bg6.jpg")
     },
     {
       name: "이샛별",
       position: "서비스 MD",
-      description: "전사 데이터를 통합 및 관리하며, 운영팀의 전산화를 지원합니다.",
-      keywords: "효율화, 계산과학",
+      description: "이내코리아를 통해 즐겁고 의미있는 경험을 만듭니다.",
+      keywords: "협력, 섬세함",
       image: require("assets/img/bg6.jpg")
     },
     {
       name: "유경희",
       position: "브랜드 디자이너",
-      description: "전사 데이터를 통합 및 관리하며, 운영팀의 전산화를 지원합니다.",
-      keywords: "효율화, 계산과학",
+      description: "이내코리아의 톤앤매너를 유지합니다.",
+      keywords: "협동, 마무리",
       image: require("assets/img/bg6.jpg")
     },
     {
