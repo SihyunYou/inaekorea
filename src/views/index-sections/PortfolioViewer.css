@@ -1,3 +1,88 @@
+.carousel-button {
+    width: 90px;
+    height: 90px;
+    margin-right: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Pretendard', sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    white-space: normal;
+    flex-shrink: 0;
+    padding: 6px;
+    cursor: pointer;
+    border: 1px solid #00A86C;
+    background-color: transparent;
+    color: #00A86C;
+    transition: all 0.2s ease;
+}
+
+.carousel-button.selected {
+    background-color: #00A86C;
+    color: white;
+    width: 100px;
+    height: 100px;
+}
+
+.nav-arrow {
+    background-color: #00A86C;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #007a4e;
+}
+
+/* 모바일용 - 작게 */
+@media (max-width: 768px) {
+    .carousel-button {
+        width: 60px;
+        height: 60px;
+        margin-right: 8px;
+        font-size: 0.8rem;
+    }
+    .carousel-button.selected {
+        width: 70px;
+        height: 70px;
+        font-size: 0.9rem;
+    }
+    .nav-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
+/* 더 작은 모바일 */
+@media (max-width: 480px) {
+    .carousel-button {
+        width: 50px;
+        height: 50px;
+        margin-right: 6px;
+        font-size: 0.7rem;
+    }
+    .carousel-button.selected {
+        width: 60px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+    .nav-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+}
+
 .program-image {
   width: calc(132px + 6vw);
   height: calc(132px + 6vw);

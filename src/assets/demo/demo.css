@@ -19,12 +19,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 p {
   font-size: calc(0.9rem + 0.4vw);
   font-weight: 500;
   margin: 0;
+  white-space: normal;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .special {
@@ -716,4 +722,22 @@ h6 {
     flex: 0 0 50%;
     box-sizing: border-box;
   }
+}
+
+.fade-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.fade-content {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.fade-wrapper.fade-in .fade-content {
+    opacity: 1;
 }

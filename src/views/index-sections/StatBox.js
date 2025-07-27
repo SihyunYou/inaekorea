@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Row, Col } from "reactstrap";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 
-export default function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
+export function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
   const ref = useRef();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -47,3 +48,26 @@ export default function StatBox({ imgSrc, end, suffix, label, duration = 2 }) {
     </motion.div>
   );
 }
+
+export function StatBoxes({ statsData }){
+  return (
+    <Row style={{ marginTop: "8vh" }}>
+      {statsData.map((stat, index) => (
+        <Col 
+          key={index} 
+          xs="6" 
+          md="3" 
+          style={stat.marginTop ? { marginTop: stat.marginTop } : {}}
+        >
+          <StatBox
+            imgSrc={require(`assets/img/${stat.imgSrc}`)}
+            end={stat.end}
+            suffix={stat.suffix}
+            label={stat.label}
+            duration={stat.duration}
+          />
+        </Col>
+      ))}
+    </Row>
+  );
+};

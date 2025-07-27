@@ -143,7 +143,7 @@ function MemberSection({ member, isEven }) {
     const TextCol = (
         <Col
             md="6"
-            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: isMobile ? '5px' : '0' }}
         >
             <div
                 style={{
@@ -151,39 +151,40 @@ function MemberSection({ member, isEven }) {
                     flexDirection: 'row',
                     alignItems: 'flex-end',
                     gap: '12px',
-                    marginBottom: '12px',
-                    justifyContent: isMobile ? 'flex-start' : (isEven ? 'flex-end' : 'flex-start')
+                    marginTop: isMobile ? '12px' : '0' ,
+                    marginBottom: isMobile ? '0' : '12px' ,
+                    justifyContent: isMobile ? 'center' : (isEven ? 'flex-end' : 'flex-start')
                 }}
             >
                 <h5 style={{ margin: '0' }}>{member.name}</h5>
                 <h6 style={{ margin: '0' }}>{member.position}</h6>
             </div>
-            <p style={{ textAlign: isMobile ? 'left' : (isEven ? 'right' : 'left') }}>
-                {member.description}
-            </p>
-            <h6 style={{ textAlign: isMobile ? 'left' : (isEven ? 'right' : 'left') }}>
+<p
+    style={{ textAlign: isMobile ? 'center' : (isEven ? 'right' : 'left') }}
+    dangerouslySetInnerHTML={{ __html: member.description }}
+/>
+            <p style={{ fontWeight: '600', textAlign: isMobile ? 'center' : (isEven ? 'right' : 'left') }}>
                 키워드: {member.keywords}
-            </h6>
+            </p>
         </Col>
     );
 
     const ImageCol = (
         <Col
             md="6"
-            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+            style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center'}}
         >
             <img
                 alt={member.name}
-                className="img-raised"
-                style={{ borderRadius: '16px' }}
+                style={{ margin: '0', objectFit: 'contain', height: 'calc(80px + 10vh)' }}
                 src={member.image}
             />
         </Col>
     );
 
     return (
-        <Col className="ml-auto mr-auto" md="11">
-            <Row className="collections">
+        <Col className="ml-auto mr-auto" md="9">
+            <Row className="collections" style={{ marginBottom: '25px' }}>
                 {isMobile ? (
                     <>
                         {ImageCol}
@@ -222,37 +223,30 @@ function EnaeKorea() {
     {
       name: "임성준",
       position: "대표",
-      description: "우헤헤헤",
+      description: "밑져야 본전",
       keywords: "밑져야 본전",
-      image: require("assets/img/bg6.jpg")
+      image: require("assets/img/성준.png")
     },
     {
       name: "이샛별",
       position: "서비스 MD",
-      description: "이내코리아를 통해 즐겁고 의미있는 경험을 만듭니다.",
+      description: "이내코리아를 통해 즐겁고<br />의미있는 경험을 만듭니다.",
       keywords: "협력, 섬세함",
-      image: require("assets/img/bg6.jpg")
+      image: require("assets/img/샛별.png")
     },
     {
       name: "유경희",
       position: "브랜드 디자이너",
-      description: "이내코리아의 톤앤매너를 유지합니다.",
+      description: "이내코리아의<br />톤앤매너를 유지합니다.",
       keywords: "협동, 마무리",
-      image: require("assets/img/bg6.jpg")
-    },
-    {
-      name: "김상현",
-      position: "프로덕트 매니저",
-      description: "더 나은 이내코리아의 서비스를 만들기 위해 노력합니다.",
-      keywords: "소통, 협력",
-      image: require("assets/img/bg6.jpg")
+      image: require("assets/img/경희.png")
     },
     {
       name: "유시현",
       position: "프로덕트 개발자",
-      description: "From Local to International, 이내코리아의 미래를 IT 솔루션화로 이끌어 나갑니다.",
+      description: "이내코리아의 미래를<br />IT 솔루션화로 이끌어 나갑니다.",
       keywords: "효율화, 계산과학",
-      image: require("assets/img/bg6.jpg")
+      image: require("assets/img/시현.png")
     }
   ];
 
@@ -270,7 +264,7 @@ function EnaeKorea() {
   }, []);
   return (
     <>
-      <IndexNavbar />
+      <IndexNavbar isReady={true} />
       <div className="wrapper">
         <ProfilePageHeader />
         <div className="section" style={{ padding: '0', display: 'flex', justifyContent: 'center' }}>
@@ -279,7 +273,7 @@ function EnaeKorea() {
             <div style={{ marginTop: '5vw' }} />
             <div style={{ backgroundColor: 'white', padding: '80px 5vw' }}>
               <h2 className="custom-underline" style={{ textAlign: 'left', marginBottom: '2.5vh' }}>소개</h2>
-              <h3 style={{ textAlign: 'center', margin: '0', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>( <strong style={{ color: "#17623c", fontWeight: '800' }}>즐겁게 일하는</strong> ) 팀 스피릿</h3>
+              <h3 style={{ textAlign: 'center', margin: '0' }}>( <strong style={{ color: "#17623c", fontWeight: '800' }}>즐겁게 일하는</strong> ) 팀 스피릿</h3>
               <h4 style={{ textAlign: 'center', marginTop: '50px', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>"우리는 문화로 놀고, 데이터로 일하는 팀입니다."</h4>
               <h6 style={{ color: "#777", textAlign: 'center', marginTop: '30px', lineHeight: '1.5', width: '90%', margin: '0 5%', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
                 이내코리아의 주력 솔루션인 <strong style={{ color: "#17623c", fontWeight: '800' }}>로컬트립가이드</strong>는 외국인 유학생이 한국에서 더 풍부한 경험을 하도록 지역 콘텐츠, 여행, 그리고 사람을 연결하는 일을 합니다.
@@ -334,8 +328,8 @@ function EnaeKorea() {
 </div>
             <div style={{ backgroundColor: 'white', padding: '80px 5vw' }}>
              <h2 className="custom-underline" style={{ textAlign: 'left', marginBottom: '2.5vh' }}>이내의 팀원들</h2>
-            <Row style={{ whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-              <TabContent className="gallery" activeTab={"pills" + pills}>
+            <Row>
+              <TabContent className="gallery" activeTab={"pills" + pills} style={{ width: '100%' }}>
                 {members.map((member, index) => (
                   <React.Fragment key={member.name}>
                     <MemberSection member={member} isEven={index % 2 === 1} />
