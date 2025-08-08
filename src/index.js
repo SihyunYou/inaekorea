@@ -35,7 +35,7 @@ root.render(
     <Routes>
       <Route path="/" element={<LocalTripGuide />} />
       <Route path="/enaekorea" element={<EnaeKorea />} />
-      <Route path="*" element={<Navigate to="/index" replace />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   </BrowserRouter>
 );

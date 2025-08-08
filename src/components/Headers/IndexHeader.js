@@ -4,17 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './IndexHeader.css';
 
-function IndexHeader({ isReady  }) {
+function IndexHeader({ isReady }) {
     const pageHeader = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
 
     const slideImages = [
-        require("assets/img/header1.jpg"),
-        require("assets/img/header2.jpg"),
-        require("assets/img/header3.jpg"),
-        require("assets/img/header4.jpg"),
+        require("assets/img/header1.webp"),
     ];
-    const logoImage = require("assets/img/logo-localtripguide.png");
+    const logoImage = require("assets/img/logo-localtripguide.webp");
 
     const settings = {
         dots: true,

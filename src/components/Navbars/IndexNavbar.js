@@ -81,14 +81,13 @@ function IndexNavbar({ isReady }) {
                 href="mailto:enae.korea@gmail.com"
                 id="email-tooltip"
                 style={{
-                  width: "48px",
                   height: "48px",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
               >
-                <i className="far fa-envelope" style={{ fontSize: "15px" }}></i>
+                이메일
               </NavLink>
               <UncontrolledTooltip target="#email-tooltip">
                 이메일
@@ -102,9 +101,14 @@ function IndexNavbar({ isReady }) {
                 href="https://www.instagram.com/localtripguide.official"
                 target="_blank"
                 id="instagram-tooltip"
-                style={{ marginTop: '-3px' }}
+                style={{
+                  height: "48px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
               >
-                <i className="fab fa-instagram" style={{ fontSize: "16px" }}></i>
+                인스타그램
               </NavLink>
               <UncontrolledTooltip target="#instagram-tooltip">
                 인스타그램

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 // reactstrap components
 import {
@@ -264,6 +265,12 @@ function EnaeKorea() {
   }, []);
   return (
     <>
+            <Helmet>
+              <title>이내코리아</title>
+              <meta name="description" content="여행의 본질을 제공합니다." />
+              <meta property="og:title" content="이내코리아" />
+              <meta property="og:description" content="여행의 본질을 제공합니다." />
+            </Helmet>
       <IndexNavbar isReady={true} />
       <div className="wrapper">
         <ProfilePageHeader />

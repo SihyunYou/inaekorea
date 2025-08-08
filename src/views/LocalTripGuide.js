@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Container, Button, Row, Col } from "reactstrap";
 import { FaComments, FaLightbulb, FaBus, FaClipboardCheck } from "react-icons/fa";
 
@@ -7,7 +8,6 @@ import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import Spacer from "./utils/Spacer.js";
 import InfiniteCarousel from "./index-sections/InfiniteCarousel.js";
-import PortfolioViewer from "./index-sections/PortfolioViewer.js";
 import HorizontalTimeline from "./index-sections/HorizontalTimeline.js";
 import { StatBoxes } from "./index-sections/StatBox.js";
 import SlideInSection from "./index-sections/SlideInSection.js";
@@ -16,105 +16,15 @@ import PrimaryButton from "./index-sections/PrimaryButton.js";
 import StepSection from './index-sections/StepSection';
 import SectionHeader from "./index-sections/SectionHeader.js";
 
-import header1 from "assets/img/header1.jpg";
-import logo from "assets/img/logo-localtripguide.png";
+import header1 from "assets/img/header1.webp";
+import logo from "assets/img/logo-localtripguide.webp";
 
-const PORTFOLIO_DATA = [
-  {
-    id: 1,
-    name: "천안아산",
-    contents: {
-      "여행 프로그램": [
-        { title: "외암 민속마을", hot: true },
-        { title: "독립 기념관", hot: true },
-        { title: "현충사", hot: false },
-        { title: "뚜쥬루 돌가마 마을", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "엿 만들기", hot: true },
-        { title: "천연 염색", hot: false },
-      ],
-    },
-  },
-  {
-    id: 2,
-    name: "부여",
-    contents: {
-      "여행 프로그램": [
-        { title: "백제 문화단지", hot: true },
-        { title: "정림사지", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "공예 체험", hot: true },
-        { title: "백제 의복 체험", hot: true },
-      ],
-    },
-  },
-  {
-    id: 3,
-    name: "공주",
-    contents: {
-      "여행 프로그램": [
-        { title: "공산성", hot: true },
-        { title: "공주 한옥마을", hot: true },
-      ],
-      "체험 프로그램": [
-        { title: "백제 왕실복 체험", hot: true },
-        { title: "삼색 인절미 체험", hot: true },
-        { title: "족욕 체험", hot: false },
-        { title: "전통 시장 체험", hot: false },
-      ],
-    },
-  },
-  {
-    id: 4,
-    name: "보령",
-    contents: {
-      "여행 프로그램": [
-        { title: "석탄 박물관", hot: false },
-        { title: "대천 해수욕장", hot: true },
-      ],
-      "체험 프로그램": [
-        { title: "대천 스카이 바이크", hot: true },
-      ],
-    },
-  },
-  {
-    id: 5,
-    name: "군산",
-    contents: {
-      "여행 프로그램": [
-        { title: "근대화 거리", hot: false },
-        { title: "경암동 철길 마을", hot: true },
-      ],
-      "체험 프로그램": [
-        { title: "교복 체험", hot: true },
-        { title: "전통과자 만들기 체험", hot: true },
-      ],
-    },
-  },
-  {
-    id: 6,
-    name: "전주",
-    contents: {
-      "여행 프로그램": [
-        { title: "전주 한옥마을", hot: true },
-        { title: "경기전", hot: false },
-        { title: "전동성당", hot: false },
-      ],
-      "체험 프로그램": [
-        { title: "전통 공예 체험", hot: true },
-        { title: "한복 체험", hot: true },
-      ],
-    },
-  },
-];
 
 const PROCESS_STEPS = [
   {
     step: 1,
     title: '프로그램 상담',
-    imageSrc: require('assets/img/bg1.png'),
+    imageSrc: require('assets/img/bg1.webp'),
     imagePosition: 'left',
     imageWidth: 'calc(150px + 15vw)',
     descriptionList: [
@@ -126,7 +36,7 @@ const PROCESS_STEPS = [
   {
     step: 2,
     title: '맞춤형 기획',
-    imageSrc: require('assets/img/bg2.png'),
+    imageSrc: require('assets/img/bg2.webp'),
     imagePosition: 'right',
     imageWidth: 'calc(110px + 11vw)',
     descriptionList: [
@@ -138,7 +48,7 @@ const PROCESS_STEPS = [
   {
     step: 3,
     title: '프로그램 운영',
-    imageSrc: require('assets/img/bg3.png'),
+    imageSrc: require('assets/img/bg3.webp'),
     imagePosition: 'left',
     descriptionList: [
       '<strong style="color:#00A86C">전문 운영팀</strong> 배치로 체계화된 시스템',
@@ -149,7 +59,7 @@ const PROCESS_STEPS = [
   {
     step: 4,
     title: '결과 보고',
-    imageSrc: require('assets/img/bg4.png'),
+    imageSrc: require('assets/img/bg4.webp'),
     imagePosition: 'right',
     imageWidth: 'calc(110px + 11vw)',
     descriptionList: [
@@ -169,14 +79,14 @@ const TIMELINE_STEPS = [
 
 const STATS_DATA = [
   { 
-    imgSrc: "fruit1.png", 
+    imgSrc: "fruit1.webp", 
     end: 10, 
     suffix: "+", 
     label: "참여 대학", 
     duration: 5 
   },
   { 
-    imgSrc: "fruit2.png", 
+    imgSrc: "fruit2.webp", 
     end: 1500, 
     suffix: "+", 
     label: "참여 유학생", 
@@ -184,14 +94,14 @@ const STATS_DATA = [
     marginTop: "10vh" 
   },
   { 
-    imgSrc: "fruit3.png", 
+    imgSrc: "fruit3.webp", 
     end: 50, 
     suffix: "+", 
     label: "진행 프로그램 수", 
     duration: 4 
   },
   { 
-    imgSrc: "fruit4.png", 
+    imgSrc: "fruit4.webp", 
     end: 20, 
     suffix: "+", 
     label: "보유 프로그램 수", 
@@ -228,47 +138,83 @@ const SECTION_HEADERS = {
   }
 };
 
+const headerImage = "/assets/img/header1.webp";
+const logoImage = "/assets/img/logo-localtripguide.webp";
 const PROPOSAL_LINK = "https://onedrive.live.com/?id=2044BB39C7BE1AA8%21s85cba87d1f304f29a0c6eb0d54e0b490&cid=2044BB39C7BE1AA8&parId=2044BB39C7BE1AA8%21134666&sb=name&sd=1&o=OneUp&ls=true";
 
 function LocalTripGuide() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "로컬트립가이드",
+    description: "문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, 로컬트립가이드가 완성합니다.",
+    datePublished: "2025-08-08",
+    author: {
+      "@type": "Organization",
+      name: "LocalTripGuide",
+    },
+    image: "https://example.com/logo.png",
+    publisher: {
+      "@type": "Organization",
+      name: "LocalTripGuide",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://example.com/logo.png",
+      },
+    },
+  };
+
     const [isReady, setIsReady] = useState(false);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-    useEffect(() => {
-        document.body.classList.add("index-page");
-        document.body.classList.add("sidebar-collapse");
-        document.documentElement.classList.remove("nav-open");
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
+useEffect(() => {
+  const head = document.head;
+  const images = [header1, logo];
+  let loaded = 0;
 
-        const handleResize = () => setViewportWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
+  images.forEach((src) => {
+    // preload 링크 추가
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = src;
+    head.appendChild(link);
 
-        return function cleanup() {
-            document.body.classList.remove("index-page");
-            document.body.classList.remove("sidebar-collapse");
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    // 이미지 로딩 체크
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      loaded += 1;
+      if (loaded === images.length) {
+        setTimeout(() => setIsReady(true), 200);
+      }
+    };
+    img.onerror = () => {
+      loaded += 1;
+      if (loaded === images.length) {
+        setTimeout(() => setIsReady(true), 200);
+      }
+    };
+  });
 
-    useEffect(() => {
-        const images = [header1, logo];
-        let loaded = 0;
-
-        images.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-            img.onload = () => {
-                loaded += 1;
-                if (loaded === images.length) {
-                    setTimeout(() => setIsReady(true), 200); // 부드럽게 딜레이
-                }
-            };
-        });
-    }, []);
+  return () => {
+    images.forEach((src) => {
+      const links = document.querySelectorAll(`link[rel="preload"][href="${src}"]`);
+      links.forEach((link) => link.remove());
+    });
+  };
+}, []);
 
     return (
         <>
+            <Helmet>
+              <title>로컬트립가이드</title>
+              <meta name="description" content="문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, 로컬트립가이드가 완성합니다." />
+              <meta property="og:title" content="로컬트립가이드" />
+              <meta property="og:description" content="문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, 로컬트립가이드가 완성합니다." />
+              <meta property="og:image" content="https://example.com/logo.png" />
+              <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+            </Helmet>
             <div className={`fade-wrapper ${isReady ? 'fade-in' : ''}`}>
                 <div className="fade-content">
                     <IndexNavbar isReady={isReady} />
@@ -287,12 +233,6 @@ function LocalTripGuide() {
                                 <SectionHeader {...SECTION_HEADERS.partners} />
 
                                 <InfiniteCarousel images={CAROUSEL_IMAGES} />
-
-                                <Spacer count={12} />
-
-                                <SectionHeader {...SECTION_HEADERS.portfolio} />
-
-                                <PortfolioViewer portfolioData={PORTFOLIO_DATA} />
 
                                 <Spacer count={12} />
 
