@@ -8,7 +8,7 @@ import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import Spacer from "./utils/Spacer.js";
 import CardSection from "./index-sections/CardSection.js";
-import InfiniteCarousel from "./index-sections/InfiniteCarousel.js";
+import Performance from "./index-sections/Performance.js";
 import HorizontalTimeline from "./index-sections/HorizontalTimeline.js";
 import { StatBoxes } from "./index-sections/StatBox.js";
 import SlideInSection from "./index-sections/SlideInSection.js";
@@ -22,15 +22,15 @@ import logo from "assets/img/logo-localtripguide.webp";
 
 const CARDS = [
   {
-    title: "프로그램 기획의 어려움",
+    title: "<strong>프로그램 기획</strong>의 어려움",
     image: "Write.gif"
   },
   {
-    title: "대규모, 다국적 외국인 운영의 어려움",
+    title: "<strong>대규모, 다국적</strong> 외국인<br />운영의 어려움",
     image: "Communication.gif"
   },
   {
-    title: "결과보고서 작성의 어려움",
+    title: "<strong>결과보고서</strong> 작성의 어려움",
     image: "Notepad.gif"
   },
 ];
@@ -132,11 +132,10 @@ const CAROUSEL_IMAGES = [
 
 const SECTION_HEADERS = {
   stats: {
-    mainText: "외국인 유학생 대상<br />문화체험 프로그램 때문에 고민이신가요?"
+    mainText: "외국인 유학생 대상<br /><strong>문화체험 프로그램</strong> 때문에 고민이신가요?"
   },
   partners: {
-    mainText: "로컬트립가이드의<br />파트너를 확인해보세요.",
-    subText: "로컬트립가이드는 수많은 네트워크를 보유 중입니다."
+    mainText: "이미 많은 대학교가<br /><strong>로컬트립가이드</strong>를 도입하고 있습니다."
   },
   portfolio: {
     mainText: "로컬트립가이드의<br />포트폴리오를 확인해보세요!",
@@ -235,18 +234,16 @@ useEffect(() => {
                     <div className="wrapper">
                         <IndexHeader isReady={isReady} />
                         <div className="main">
-                            <Spacer count={8} />
-
+                            <Spacer count={10} />
                             <Container>
                                 <SectionHeader {...SECTION_HEADERS.stats} />
                                 <Spacer />
-<CardSection cards={CARDS} />
-                                <Spacer count={12} />
+                                <CardSection cards={CARDS} />
+                                <Spacer count={15} />
 
                                 <SectionHeader {...SECTION_HEADERS.partners} />
-
-                                <InfiniteCarousel images={CAROUSEL_IMAGES} />
-
+                                <Spacer />
+                                <Performance images={CAROUSEL_IMAGES} />
                                 <Spacer count={12} />
 
                                 <SectionHeader {...SECTION_HEADERS.process} />
