@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { Container, Button, Row, Col } from "reactstrap";
-import { FaComments, FaLightbulb, FaBus, FaClipboardCheck } from "react-icons/fa";
+import { FaPenNib, FaComments, FaLightbulb, FaBus, FaClipboardCheck, FaCompass } from "react-icons/fa";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import IndexHeader from "components/Headers/IndexHeader.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 import Spacer from "./utils/Spacer.js";
+import CardSection from "./index-sections/CardSection.js";
 import InfiniteCarousel from "./index-sections/InfiniteCarousel.js";
 import HorizontalTimeline from "./index-sections/HorizontalTimeline.js";
 import { StatBoxes } from "./index-sections/StatBox.js";
@@ -19,6 +20,20 @@ import SectionHeader from "./index-sections/SectionHeader.js";
 import header1 from "assets/img/header1.webp";
 import logo from "assets/img/logo-localtripguide.webp";
 
+const CARDS = [
+  {
+    title: "프로그램 기획의 어려움",
+    image: "Write.gif"
+  },
+  {
+    title: "대규모, 다국적 외국인 운영의 어려움",
+    image: "Communication.gif"
+  },
+  {
+    title: "결과보고서 작성의 어려움",
+    image: "Notepad.gif"
+  },
+];
 
 const PROCESS_STEPS = [
   {
@@ -117,8 +132,7 @@ const CAROUSEL_IMAGES = [
 
 const SECTION_HEADERS = {
   stats: {
-    mainText: "로컬트립가이드는<br />검증된 솔루션입니다.",
-    subText: "이미 많은 대학과 학생들이 로컬트립가이드를 경험했습니다."
+    mainText: "외국인 유학생 대상<br />문화체험 프로그램 때문에 고민이신가요?"
   },
   partners: {
     mainText: "로컬트립가이드의<br />파트너를 확인해보세요.",
@@ -223,11 +237,10 @@ useEffect(() => {
                         <div className="main">
                             <Spacer count={8} />
 
-                            <SectionHeader {...SECTION_HEADERS.stats} />
-
                             <Container>
-                                <StatBoxes statsData={STATS_DATA} />
-
+                                <SectionHeader {...SECTION_HEADERS.stats} />
+                                <Spacer />
+<CardSection cards={CARDS} />
                                 <Spacer count={12} />
 
                                 <SectionHeader {...SECTION_HEADERS.partners} />

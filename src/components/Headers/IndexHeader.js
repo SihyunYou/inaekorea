@@ -48,15 +48,22 @@ function IndexHeader({ isReady }) {
         >
             {isReady && (
                 <>
-                    <div className="text-overlay" style={{ margin: '0 4vw', marginTop: '2vh' }}>
-                        <h1 className="special">
-                            <strong className="green">국제교류처</strong>를 위한,<br />
-                            <strong className="green">유학생</strong>을 위한,<br />
-                            <img src={logoImage} style={{ width: 'calc(8rem + 20vw)' }} />
-                        </h1>
-                        <h6 style={{ marginRight: '4vw', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-                            전국 대학교들이 주목하는 단 하나의 문화체험 솔루션
+                    <div className="text-overlay" style={{ margin: '0 4vw', marginTop: '8vh' }}>
+                        <h2>
+                            우리 대학에 꼭 맞는<br />
+                            외국인 유학생 프로그램을 찾고 계신가요?
+                        </h2>
+                        <h6 style={{ color: '#CCC', marginRight: '10vw', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+                            문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, <strong className="green">로컬트립가이드</strong>가 완성합니다.
                         </h6>
+<br /><br />
+<button className="btn-solid">
+  <p><strong>문의하기</strong></p>
+</button>
+
+<button className="btn-outline" style={{ marginLeft: 'calc(4px + 0.8vw)' }}>
+  <p><strong>서비스 소개서 ></strong></p>
+</button>
                     </div>
 
                     <Slider {...settings}>

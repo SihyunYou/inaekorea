@@ -7,33 +7,22 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledTooltip,
 } from "reactstrap";
 
 function IndexNavbar({ isReady }) {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-
-  React.useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else {
-        setNavbarColor("navbar-transparent");
-      }
-    };
-    window.addEventListener("scroll", updateNavbarColor);
-    return () => window.removeEventListener("scroll", updateNavbarColor);
-  }, []);
-
-  // ✅ isReady가 false면 아무것도 렌더링하지 않음
   if (!isReady) return null;
 
   return (
-    <Navbar className={"fixed-top " + navbarColor} color="info">
-      <Container>
+    <Navbar style={{
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    zIndex: 10,
+    boxShadow: 'none',
+    padding: '0'
+  }}>
+      <Container fluid style={{ margin: 'auto calc(7vw - 10px)', padding: '0' }}>
         <Nav
           navbar
           className="ml-auto"
@@ -42,17 +31,16 @@ function IndexNavbar({ isReady }) {
             flexDirection: 'row',
             alignItems: "center",
             justifyContent: 'space-between',
-            margin: '0',
-            marginTop: '5px'
+            marginTop: '3.5vh'
           }}
         >
           <NavItem style={{ cursor: 'pointer' }}>
             <NavLink href="/">
               <img
                 alt="..."
-                src={require("assets/img/logo-footer.png")}
+                src={require("assets/img/logo-localtripguide.png")}
                 style={{
-                  width: 'calc(32px + 1.2vw)',
+                  width: 'calc(64px + 3.2vw)',
                   display: 'block'
                 }}
               />
@@ -63,58 +51,40 @@ function IndexNavbar({ isReady }) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: "center",
-            justifyContent: 'center'
+            justifyContent: 'center',
+            gap: '0.75vw'
           }}>
             <NavItem style={{ cursor: 'pointer' }}>
-              <NavLink href="/enaekorea">
+              <NavLink href="/program" style={{ textTransform: 'none', borderRadius: '15px' }}>
                 <span style={{
-                  fontSize: 'calc(0.6rem + 0.3vw)',
+                  fontSize: 'calc(0.5rem + 0.25vw)',
                   fontWeight: '600'
                 }}>
-                  이내코리아
+                  Program
                 </span>
               </NavLink>
             </NavItem>
 
-            <NavItem>
-              <NavLink
-                href="mailto:enae.korea@gmail.com"
-                id="email-tooltip"
-                style={{
-                  height: "48px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                이메일
+            <NavItem style={{ cursor: 'pointer' }}>
+              <NavLink href="/aboutus" style={{ textTransform: 'none', borderRadius: '15px' }}>
+                <span style={{
+                  fontSize: 'calc(0.5rem + 0.25vw)',
+                  fontWeight: '600'
+                }}>
+                  About Us
+                </span>
               </NavLink>
-              <UncontrolledTooltip target="#email-tooltip">
-                이메일
-                <br />
-                enae.korea@gmail.com
-              </UncontrolledTooltip>
             </NavItem>
 
-            <NavItem>
-              <NavLink
-                href="https://www.instagram.com/localtripguide.official"
-                target="_blank"
-                id="instagram-tooltip"
-                style={{
-                  height: "48px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}
-              >
-                인스타그램
+            <NavItem style={{ cursor: 'pointer', border: '1px solid white', borderRadius: '15px' }}>
+              <NavLink href="/contactus" style={{ textTransform: 'none', padding: '4px 8px', borderRadius: '15px' }}>
+                <span style={{
+                  fontSize: 'calc(0.5rem + 0.25vw)',
+                  fontWeight: '600'
+                }}>
+                  Contact Us
+                </span>
               </NavLink>
-              <UncontrolledTooltip target="#instagram-tooltip">
-                인스타그램
-                <br />
-                localtripguide.official
-              </UncontrolledTooltip>
             </NavItem>
           </div>
         </Nav>

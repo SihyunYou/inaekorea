@@ -761,3 +761,31 @@ h6 {
 .fade-wrapper.fade-in .fade-content {
     opacity: 1;
 }
+
+.btn-outline {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 2px solid #00A86C;
+  border-radius: 15px;
+  padding: 10px 25px;
+  color: #00A86C;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.btn-solid {
+  background-color: rgba(0, 168, 108, 0.8);
+  border: none;
+  border-radius: 15px;
+  padding: 12px 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-solid:hover {
+  background-color: rgba(0, 168, 108, 1);
+}

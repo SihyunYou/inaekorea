@@ -11,7 +11,7 @@ const SectionHeader = ({ mainText, subText, highlight = "로컬트립가이드" 
 
     return (
         <>
-            <h4
+            <h5
                 style={{ textAlign: "center", margin: "1vh" }}
                 dangerouslySetInnerHTML={{ __html: highlightText(mainText) }}
             />
