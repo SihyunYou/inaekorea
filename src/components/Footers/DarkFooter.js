@@ -21,8 +21,8 @@ function DarkFooter() {
         </nav>
             <img
               alt="..."
-              style={{ width: '72px', height: '68px' }}
-              src={require("assets/img/logo-footer.png")}
+              style={{ width: '100px', height: '30px' }}
+              src={require("assets/img/enae.webp")}
             ></img>
       </Container>
     </footer>

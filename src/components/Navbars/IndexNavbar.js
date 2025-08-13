@@ -66,7 +66,7 @@ function IndexNavbar({ isReady }) {
             </NavItem>
 
             <NavItem style={{ cursor: 'pointer' }}>
-              <NavLink href="/aboutus" style={{ textTransform: 'none', borderRadius: '15px' }}>
+              <NavLink href="/enaekorea" style={{ textTransform: 'none', borderRadius: '15px' }}>
                 <span style={{
                   fontSize: 'calc(0.5rem + 0.25vw)',
                   fontWeight: '600'

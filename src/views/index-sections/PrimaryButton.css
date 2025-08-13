@@ -10,7 +10,7 @@
 }
 
 .primary-button.default {
-  background-color: white;
+  background-color: transparent;
   color: #00A86C;
 }
 
@@ -25,6 +25,6 @@
 }
 
 .primary-button.inverse:hover {
-  background-color: white;
+  background-color: transparent;
   color: #00A86C;
 }

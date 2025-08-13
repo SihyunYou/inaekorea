@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import { generateGreenGradient } from "../utils/Color.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ChartDataLabels);
 
@@ -31,7 +32,7 @@ export default function HurricaneChart({ labels, values }) {
       {
         label: "참여 대학",
         data: values,
-        backgroundColor: backgroundColors,
+        backgroundColor: generateGreenGradient(4),
         borderRadius: 5,
       },
     ],

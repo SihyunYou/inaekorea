@@ -34,7 +34,7 @@ export default function Performance({ images }) {
             alignItems: "center",
           }}
         >
-          <h6 style={{ marginBottom: "25px" }}>참여 대학</h6>
+          <p style={{ backgroundColor: '#E8E8E8', padding: '4px 10px', borderRadius: '8px', marginBottom: "25px" }}>참여 대학</p>
           <HurricaneChart
             labels={["24-1학기", "24-2학기", "25-1학기", "25-2학기"]}
             values={[1, 2, 4, 7]}
@@ -48,7 +48,7 @@ export default function Performance({ images }) {
             alignItems: "center",
           }}
         >
-          <h6 style={{ marginBottom: "25px" }}>재계약률</h6>
+          <p style={{ backgroundColor: '#E8E8E8', padding: '4px 10px', borderRadius: '8px', marginBottom: "25px" }}>재계약률</p>
     <div style={{ display: "flex", justifyContent: "center", width: "80%" }}>
           <PieChart yesCount={80} noCount={20} />
     </div>

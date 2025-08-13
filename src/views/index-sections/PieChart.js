@@ -8,6 +8,7 @@ import {
   Legend,
 } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
+import { generateGreenGradient } from "../utils/Color.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 

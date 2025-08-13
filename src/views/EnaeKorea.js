@@ -270,6 +270,7 @@ function EnaeKorea() {
               <meta name="description" content="여행의 본질을 제공합니다." />
               <meta property="og:title" content="이내코리아" />
               <meta property="og:description" content="여행의 본질을 제공합니다." />
+              <meta property="og:image" content="/logo.jpg" />
             </Helmet>
       <IndexNavbar isReady={true} />
       <div className="wrapper">
