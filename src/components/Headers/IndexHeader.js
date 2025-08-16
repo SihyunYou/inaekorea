@@ -2,16 +2,17 @@ import React, { useEffect, useRef, useState } from "react";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Typewriter } from "react-simple-typewriter";
 import './IndexHeader.css';
 
 function IndexHeader({ isReady }) {
     const pageHeader = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
+    const [typewriterStarted, setTypewriterStarted] = useState(false);
 
     const slideImages = [
         require("assets/img/header1.webp"),
     ];
-    const logoImage = require("assets/img/logo-localtripguide.webp");
 
     const settings = {
         dots: true,
@@ -23,9 +24,7 @@ function IndexHeader({ isReady }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         pauseOnHover: false,
-        afterChange: (current) => {
-            setActiveIndex(current);
-        }
+        afterChange: (current) => setActiveIndex(current),
     };
 
     useEffect(() => {
@@ -41,6 +40,12 @@ function IndexHeader({ isReady }) {
         }
     }, []);
 
+    // 타자기 시작 지연 (예: 1초 후)
+    useEffect(() => {
+        const timer = setTimeout(() => setTypewriterStarted(true), 500);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <section
             className={`testimonials fade-in ${isReady ? 'show' : ''}`}
@@ -53,17 +58,49 @@ function IndexHeader({ isReady }) {
                             우리 대학에 꼭 맞는<br />
                             외국인 유학생 프로그램을 찾고 계신가요?
                         </h2>
-                        <h6 style={{ color: '#CCC', marginRight: '10vw', whiteSpace: 'normal', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-                            문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, <strong className="green">로컬트립가이드</strong>가 완성합니다.
+                        <h6
+                            style={{
+                                color: "#CCC",
+                                marginRight: "10vw",
+                                whiteSpace: "normal",
+                                wordBreak: "keep-all",
+                                overflowWrap: "break-word",
+                            }}
+                        >
+                            문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션,&nbsp;
+                            <span
+                                style={{
+                                    backgroundColor: "#00a859",
+                                    color: "#fff",
+                                    padding: "2px 6px",
+                                    fontWeight: "700",
+                                    borderRadius: "4px",
+                                    display: "inline-block",
+                                    minWidth: "calc(100px + 5vw)",
+                                    textAlign: "center",
+                                }}
+                            >
+                                {typewriterStarted && (
+                                    <Typewriter
+                                        words={["로컬트립가이드"]}
+                                        typeSpeed={330}
+                                        deleteSpeed={50}
+                                        delaySpeed={2000}
+                                    />
+                                )}
+                                {!typewriterStarted && "로컬트립가이드"} {/* 미리 공간 확보 */}
+                            </span>
+                            &nbsp;가 완성합니다.
                         </h6>
-<br /><br />
-<button className="btn-solid">
-  <p><strong>문의하기</strong></p>
-</button>
 
-<button className="btn-outline" style={{ marginLeft: 'calc(4px + 0.8vw)' }}>
-  <p><strong>서비스 소개서 ></strong></p>
-</button>
+                        <br /><br />
+                        <button className="btn-solid">
+                            <p><strong>문의하기</strong></p>
+                        </button>
+
+                        <button className="btn-outline" style={{ marginLeft: 'calc(4px + 0.8vw)' }}>
+                            <p><strong>서비스 소개서 ></strong></p>
+                        </button>
                     </div>
 
                     <Slider {...settings}>

@@ -28,6 +28,7 @@
     "react-router-dom": "6.11.1",
     "react-scripts": "5.0.1",
     "react-scroll-parallax": "^3.4.5",
+    "react-simple-typewriter": "^5.0.1",
     "react-slick": "^0.30.3",
     "react-snap": "^1.23.0",
     "react-tooltip": "^5.29.1",

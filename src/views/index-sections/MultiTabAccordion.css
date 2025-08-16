@@ -15,9 +15,10 @@
     gap: 16px;
     padding: 8px;
     background-color: #E8E8E8;
-    border-radius: 8px;
+    border-radius: 15px;
+    margin-bottom: 4vh;
 }
-.tab {
+.tab-button {
     background: transparent;
     border: none;
     color: #999;
@@ -26,61 +27,11 @@
     font-size: 14px;
     font-family: 'Pretendard';
 }
-.tab:focus {
+.tab-button:focus {
     outline: none;
 }
-.tab.active {
+.tab-button.active {
     background: #00A86C;
-    border-radius: 20px;
+    border-radius: 15px;
     color: white;
-}
-
-/* 본문 영역 */
-.content-area {
-    display: flex;
-    padding: 20px;
-}
-
-/* 아코디언 */
-.accordion {
-    width: 100%;
-    padding-right: 20px;
-    color: #444;
-}
-.title.blue {
-    color: #00A86C;
-    margin-bottom: 12px;
-}
-.desc {
-    font-size: 14px;
-    color: #66ccb1; /* 연한 초록 */
-    margin-bottom: 20px;
-}
-.accordion-item {
-    border-bottom: 1px solid #888; /* 진한 초록 */
-}
-.accordion-item:first-child {
-    border-top: 1px solid #888; /* 진한 초록 */
-}
-.accordion-header {
-    padding: 15px;
-    cursor: pointer;
-    font-size: 
-}
-.accordion-body {
-    padding: 15px;
-    background: #00A86C; /* 중간 초록 */
-    color: white;
-}
-
-/* 이미지 */
-.image-area {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.image-area img {
-    max-width: 100%;
-    border-radius: 8px;
 }

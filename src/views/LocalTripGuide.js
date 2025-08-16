@@ -78,22 +78,6 @@ const VERTICAL_ITEMS = [
   },
 ];
 
-
-const CARDS = [
-  {
-    title: "<strong>프로그램 기획</strong>의 어려움",
-    image: "Write.gif"
-  },
-  {
-    title: "<strong>대규모, 다국적</strong> 외국인<br />운영의 어려움",
-    image: "Communication.gif"
-  },
-  {
-    title: "<strong>결과보고서</strong> 작성의 어려움",
-    image: "Notepad.gif"
-  },
-];
-
 const TIMELINE_STEPS = [
   { title: "프로그램 상담", icon: <FaComments /> },
   { title: "맞춤형 기획", icon: <FaLightbulb /> },
@@ -101,50 +85,69 @@ const TIMELINE_STEPS = [
   { title: "결과 보고", icon: <FaClipboardCheck /> },
 ];
 
-const STATS_DATA = [
+const STATS_DATA1 = [
   { 
-    imgSrc: "fruit1.webp", 
-    end: 10, 
-    suffix: "+", 
-    label: "참여 대학", 
-    duration: 5 
+    imgSrc: "home_1_1.png", 
+    label: "다양한 프로그램<br /><strong>기획의 어려움</strong>",
   },
+  { 
+    imgSrc: "home_1_2.png", 
+    label: "대규모, 다국적 외국인<br /><strong>운영의 어려움</strong>",
+  },
+  { 
+    imgSrc: "home_1_3.png", 
+    label: "결과보고서<br /><strong>작성의 어려움</strong>",
+  },
+];
+
+const STATS_DATA2 = [
   { 
     imgSrc: "fruit2.webp", 
     end: 1500, 
     suffix: "+", 
     label: "참여 유학생", 
-    duration: 2, 
-    marginTop: "10vh" 
+    duration: 2
+  },
+  { 
+    imgSrc: "fruit1.webp", 
+    end: 95, 
+    suffix: "%", 
+    label: "대학교 재계약률", 
+    duration: 3
   },
   { 
     imgSrc: "fruit3.webp", 
     end: 50, 
-    suffix: "+", 
-    label: "진행 프로그램 수", 
-    duration: 4 
+    suffix: "%", 
+    label: "로트가 성장률", 
+    duration: 3
   },
   { 
     imgSrc: "fruit4.webp", 
     end: 20, 
     suffix: "+", 
     label: "보유 프로그램 수", 
-    duration: 4, 
-    marginTop: "10vh" 
+    duration: 4
   }
 ];
 
-const CAROUSEL_IMAGES = [
+const CAROUSEL_IMAGES1 = [
   "충남대", "남서울대", "나사렛대", "카이스트", 
-  "선문대", "백석대", "백석문화대", "순천향대"
+  "선문대", "중부대", "백석문화대", "순천향대"
+];
+const CAROUSEL_IMAGES2 = [
+  "아트뮤", "백제문화단지", "사비공예마을",   "부여군", "아트뮤", "백제문화단지", "사비공예마을",   "부여군"
 ];
 
 const SECTION_HEADERS = {
-  stats: {
-    mainText: "외국인 유학생 대상<br /><strong>문화체험 프로그램</strong> 때문에 고민이신가요?"
+  stats1: {
+mainText: "외국인 유학생 대상<strong style='color:#00A86A'> 문화/직무 체험</strong><br />프로그램 때문에 고민이신가요?"
+  },
+  stats2: {
+  mainText: "검증된 솔루션, <strong style='color:#00A86A'>로컬트립가이드</strong>의<br />실적을 확인해보세요."
   },
   partners: {
-    mainText: "이미 많은 대학교가<br /><strong>로컬트립가이드</strong>를 도입하고 있습니다."
+    mainText: "이미 많은 대학교 및 회사가<br /><strong style='color:#00A86A'>로컬트립가이드</strong>를 도입하고 있습니다."
   },
   function: {
     mainText: "<strong>로컬트립가이드 통합 솔루션</strong>을 통해<br />다양한 프로그램을 기획/운영/보고 할 수 있습니다."
@@ -243,14 +246,19 @@ useEffect(() => {
                         <div className="main">
                             <Spacer count={10} />
                             <Container>
-                                <SectionHeader {...SECTION_HEADERS.stats} />
+                                <SectionHeader {...SECTION_HEADERS.stats1} />
                                 <Spacer />
-                                <CardSection cards={CARDS} />
+                                <StatBoxes statsData={STATS_DATA1} styleOption={1} />
                                 <Spacer count={15} />
 
                                 <SectionHeader {...SECTION_HEADERS.partners} />
                                 <Spacer />
-                                <Performance images={CAROUSEL_IMAGES} />
+                                <Performance images1={CAROUSEL_IMAGES1} images2={CAROUSEL_IMAGES2} />
+                                <Spacer count={15} />
+
+                                <SectionHeader {...SECTION_HEADERS.stats2} />
+                                <Spacer />
+                                <StatBoxes statsData={STATS_DATA2} styleOption={0} />
                                 <Spacer count={15} />
 
                                 <SectionHeader {...SECTION_HEADERS.function} />

@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import InfiniteCarousel from "./InfiniteCarousel.js";
-import HurricaneChart from "./HurricaneChart.js";
-import PieChart from "./PieChart.js";
 
-export default function Performance({ images }) {
+export default function Performance({ images1, images2 }) {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -15,45 +13,9 @@ export default function Performance({ images }) {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1.5vh" }}>
-      <InfiniteCarousel images={images} />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          justifyContent: isMobile ? "center" : "space-between",
-          alignItems: "flex-start",
-          gap: isMobile ? "3vh" : "1vw",
-        }}
-      >
-        <div
-          style={{
-            width: isMobile ? "100%" : "60%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <p style={{ backgroundColor: '#E8E8E8', padding: '4px 10px', borderRadius: '8px', marginBottom: "25px" }}>참여 대학</p>
-          <HurricaneChart
-            labels={["24-1학기", "24-2학기", "25-1학기", "25-2학기"]}
-            values={[1, 2, 4, 7]}
-          />
-        </div>
-        <div
-          style={{
-            width: isMobile ? "100%" : "40%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          <p style={{ backgroundColor: '#E8E8E8', padding: '4px 10px', borderRadius: '8px', marginBottom: "25px" }}>재계약률</p>
-    <div style={{ display: "flex", justifyContent: "center", width: "80%" }}>
-          <PieChart yesCount={80} noCount={20} />
-    </div>
-        </div>
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "3vh" }}>
+      <InfiniteCarousel images={images1} />
+      <InfiniteCarousel images={images2} reverse={true} />
     </div>
   );
 }
