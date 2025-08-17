@@ -1,47 +1,83 @@
-// AccordionLayout.jsx
-import React, { useState } from "react";
-import "./AccordionLayout.scss";
+import React from "react";
+import "./Timeline.scss";
 
-export default function AccordionLayout() {
-  const items = [
-    { title: "킥오프 미팅", content: "킥오프 미팅 상세 내용입니다." },
-    { title: "맞춤형 운영기획안 제공", content: "운영기획안 상세 내용입니다." },
-    { title: "원패스 솔루션", content: "원패스 솔루션 상세 내용입니다." },
-    { title: "예산에 맞춘 프로그램 기획", content: "프로그램 기획 상세 내용입니다." },
-  ];
+export default function Timeline({ data }) {
+    return (
+        <div className="container-fluid blue-bg">
+            <div className="container">
+                {data.map((item, index) => {
+                    const isEven = index % 2 === 0;
+                    const isLast = index === data.length - 1;
 
-  const [activeIndex, setActiveIndex] = useState(0);
+                    return (
+                        <React.Fragment key={index}>
+                            {/* Timeline Section */}
+                            <div
+                                className={`row align-items-center how-it-works ${
+                                    !isEven ? "justify-content-end" : ""
+                                }`}
+                            >
+                                {isEven ? (
+                                    <>
+                                        <div className={`col-2 text-center ${isLast ? "full-bottom" : "bottom"}`}>
+                                            <div className="circle">{item.id}</div>
+                                        </div>
+<div className="col-10" text-left>
+    <h5 style={{ marginTop: '10px' }}><strong>{item.title}</strong></h5>
+<h6 dangerouslySetInnerHTML={{ __html: item.description }} />
+    {item.addition && item.addition.length > 0 && (
+<ul style={{ padding: '0', marginTop: '10px' }}>
+  {item.addition.map((add, idx) => (
+    <li key={idx} style={{ display: 'inline' }}>
+      <span style={{ marginRight: '5px', fontSize: '22px', lineHeight: '0.8' }}>•</span>
+      {add}<br />
+    </li>
+  ))}
+</ul>
+    )}
+</div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="col-10 text-right">
+    <h5 style={{ marginTop: '10px' }}><strong>{item.title}</strong></h5>
+<h6 dangerouslySetInnerHTML={{ __html: item.description }} />
+    {item.addition && item.addition.length > 0 && (
+<ul style={{ padding: '0', marginTop: '10px' }}>
+  {item.addition.map((add, idx) => (
+    <li key={idx} style={{ display: 'inline' }}>
+      {add}
+      <span style={{ marginLeft: '5px', fontSize: '22px', lineHeight: '0.8' }}>•<br /></span>
+    </li>
+  ))}
+</ul>
+    )}
+                                        </div>
+                                        <div className={`col-2 text-center ${isLast ? "full-bottom" : "full"}`}>
+                                            <div className="circle">{item.id}</div>
+                                        </div>
+                                    </>
+                                )}
+                            </div>
 
-  return (
-    <div className="accordion-layout">
-      {/* 왼쪽 아코디언 메뉴 */}
-      <div className="accordion-menu">
-        <h1>맞춤형 기획</h1>
-        <ul>
-          {items.map((item, idx) => (
-            <li key={idx} className={activeIndex === idx ? "active" : ""}>
-              <input
-                type="checkbox"
-                checked={activeIndex === idx}
-                onChange={() =>
-                  setActiveIndex(activeIndex === idx ? -1 : idx)
-                }
-              />
-              <i></i>
-              <h2>{item.title}</h2>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* 오른쪽 콘텐츠 영역 */}
-      <div className="accordion-content">
-        {activeIndex >= 0 ? (
-          <div className="content-box">{items[activeIndex].content}</div>
-        ) : (
-          <div className="content-box">내용을 선택하세요</div>
-        )}
-      </div>
-    </div>
-  );
+                            {/* Timeline Path (except for last item) */}
+                            {!isLast && (
+                                <div className="row timeline">
+                                    <div className="col-2">
+                                        <div className={`corner ${isEven ? "top-right" : "right-bottom"}`}></div>
+                                    </div>
+                                    <div className="col-8">
+                                        <hr />
+                                    </div>
+                                    <div className="col-2">
+                                        <div className={`corner ${isEven ? "left-bottom" : "top-left"}`}></div>
+                                    </div>
+                                </div>
+                            )}
+                        </React.Fragment>
+                    );
+                })}
+            </div>
+        </div>
+    );
 }

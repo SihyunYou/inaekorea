@@ -10,7 +10,7 @@ import Spacer from "./utils/Spacer.js";
 import CardSection from "./index-sections/CardSection.js";
 import Performance from "./index-sections/Performance.js";
 import MultiTabAccordion from "./index-sections/MultiTabAccordion.js";
-import VerticalTimeline from "./index-sections/VerticalTimeline.js";
+import Timeline from "./index-sections/Timeline.js";
 import { StatBoxes } from "./index-sections/StatBox.js";
 import SlideInSection from "./index-sections/SlideInSection.js";
 import ChannelTalkButton from "./index-sections/ChannelTalkButton.js";
@@ -24,65 +24,48 @@ import logo from "assets/img/logo-localtripguide.webp";
 
 const greenColors = generateGreenGradient(5);
 
-const VERTICAL_ITEMS = [
-  {
-    date: "D-14",
-    title: "킥오프 미팅",
-    subtitle: "고객사의 니즈를 파악합니다.",
-    details: ["프로그램 테마", "예산 / 일정 / 규모 등"],
-    icon: <FaFlagCheckered />,
-    bgColor: greenColors[0]
-  },
-  {
-    date: "D-10",
-    title: "맞춤형 기획",
-    subtitle: "니즈에 맞는 운영기획안을 제작합니다.",
-    details: ["맞춤형 프로그램 기획", "예산 확정", "운영기획안 제공"],
-    icon: <FaClipboardList />,
-    bgColor: greenColors[1]
-  },
-  {
-    date: "D-7",
-    title: "프로그램 준비",
-    subtitle: "프로그램의 필요한 요소들을 제작하고 준비합니다.",
-    details: [
-      "계약 및 보증보험 가입 등",
-      "목걸이, 현수막 등 제작",
-      "참여자 명단 확보",
-      "필드크루 배치",
-      "디지털 QR 시스템 제작",
-    ],
-    icon: <FaCogs />,
-    bgColor: greenColors[2]
-  },
-  {
-    date: "D-DAY",
-    title: "현장 운영",
-    subtitle: "안전하고 원활한 운영을 통해 프로그램을 성공적으로 마무리합니다.",
-    details: ["출석부 제공", "종교 및 문화에 따른 식단 반영", "만족도 조사"],
-    icon: <FaTruck />,
-    bgColor: greenColors[3]
-  },
-  {
-    date: "D+7",
-    title: "결과 보고",
-    subtitle: "데이터 기반의 결과 보고서 및 후속 업무를 진행합니다.",
-    details: [
-      "데이터 기반의 결과보고서 제작",
-      "AI 분석을 통한 만족도 데이터 제공",
-      "보도자료 및 SNS 홍보 진행",
-      "사진/영상 데이터 제공",
-    ],
-    icon: <FaChartLine />,
-    bgColor: greenColors[4]
-  },
-];
-
-const TIMELINE_STEPS = [
-  { title: "프로그램 상담", icon: <FaComments /> },
-  { title: "맞춤형 기획", icon: <FaLightbulb /> },
-  { title: "프로그램 운영", icon: <FaBus /> },
-  { title: "결과 보고", icon: <FaClipboardCheck /> },
+const steps = [
+    {
+        id: 1,
+        title: "킥오프 미팅",
+        description: "고객사의 니즈를 파악합니다.",
+        addition: ["프로그램 테마", "예산 / 일정 / 규모 등"],
+    },
+    {
+        id: 2,
+        title: "맞춤형 기획",
+        description: "니즈에 맞는 운영기획안을 제작합니다.",
+        addition: ["맞춤형 프로그램 기획", "예산 확정", "운영기획안 제공"],
+    },
+    {
+        id: 3,
+        title: "프로그램 준비",
+        description: "프로그램의 필요한 요소들을 제작하고 준비합니다.",
+        addition: [
+            "계약 및 보증보험 가입 등",
+            "목걸이, 현수막 등 제작",
+            "참여자 명단 확보",
+            "필드크루 배치",
+            "디지털 QR 시스템 제작",
+        ],
+    },
+    {
+        id: 4,
+        title: "현장 운영",
+        description: "안전하고 원활한 운영을 통해<br />프로그램을 성공적으로 마무리합니다.",
+        addition: ["출석부 제공", "종교 및 문화에 따른 식단 반영", "만족도 조사"],
+    },
+    {
+        id: 5,
+        title: "결과 보고",
+        description: "데이터 기반의 결과 보고서<br />및 후속 업무를 진행합니다.",
+        addition: [
+            "데이터 기반의 결과보고서 제작",
+            "AI 분석을 통한 만족도 데이터 제공",
+            "보도자료 및 SNS 홍보 진행",
+            "사진/영상 데이터 제공",
+        ],
+    },
 ];
 
 const STATS_DATA1 = [
@@ -150,15 +133,11 @@ mainText: "외국인 유학생 대상<strong style='color:#00A86A'> 문화/직�
     mainText: "이미 많은 대학교 및 회사가<br /><strong style='color:#00A86A'>로컬트립가이드</strong>를 도입하고 있습니다."
   },
   function: {
-    mainText: "<strong>로컬트립가이드 통합 솔루션</strong>을 통해<br />다양한 프로그램을 기획/운영/보고 할 수 있습니다."
+    mainText: "<strong style='color:#00A86A'>로컬트립가이드 통합 솔루션</strong>을 통해<br />다양한 프로그램을 기획/운영/보고 할 수 있습니다."
   },
   process: {
-    mainText: "<strong>로컬트립가이드</strong>는 어떻게 진행되나요?",
+    mainText: "<strong style='color:#00A86A'>로컬트립가이드</strong>는<br />어떻게 진행되나요?",
   },
-  consultation: {
-    mainText: "외국인 유학생 맞춤형 프로그램의 시작",
-    subText: "로컬트립가이드와 함께"
-  }
 };
 
 const headerImage = "/assets/img/header1.webp";
@@ -268,28 +247,31 @@ useEffect(() => {
 
                                 <SectionHeader {...SECTION_HEADERS.process} />
                                 <Spacer />
-                                <VerticalTimeline items={VERTICAL_ITEMS} />
-                                <Spacer count={15} />
-
-                                <SectionHeader {...SECTION_HEADERS.consultation} />
+                                <Timeline data={steps} />
+                                <Spacer count={10} />
+                            </Container>
+                        </div>
+                                <div style={{ backgroundColor: '#2c2c2c', color: 'white' }}>
+                                <Spacer count={8} />
+                               <h5 style={{ textAlign: 'center' }}>외국인 유학생 맞춤형 프로그램의 시작</h5>
+                               <h6 style={{ textAlign: 'center' }}><strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>와 함께</h6><br />
                                 <Spacer />
                                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
                                 <PrimaryButton 
                                     inverse={true}
-                                    tag="p"
+                                    tag="h6"
                                 >
                                      &nbsp;&nbsp;&nbsp;&nbsp;문의하기&nbsp;&nbsp;&nbsp;&nbsp;
                                 </PrimaryButton>
                                 <PrimaryButton 
                                     href={PROPOSAL_LINK}
-                                    tag="p"
+                                    tag="h6"
                                 >
                                     서비스 소개서 >
                                 </PrimaryButton>
                                 </div>
-                                <Spacer count={15} />
-                            </Container>
-                        </div>
+                                <Spacer count={8} />
+                                </div>
                         <DarkFooter />
                     </div>
                 </div>
