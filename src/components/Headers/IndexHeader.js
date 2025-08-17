@@ -1,18 +1,44 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { Typewriter } from "react-simple-typewriter";
-import './IndexHeader.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Hangul from "hangul-js";
+import "./IndexHeader.css";
+
+function KoreanTypewriter({ text, start }) {
+    const [display, setDisplay] = useState("");
+
+    useEffect(() => {
+        if (!start) return; // 시작 여부 제어
+        const chars = Hangul.disassemble(text); // 초/중/종 분리
+        let i = 0;
+
+        const type = () => {
+            if (i <= chars.length) {
+                const current = Hangul.assemble(chars.slice(0, i)); // 현재까지 조합
+                setDisplay(current);
+                i++;
+                const delay = Math.random() * 150 + 80; // 랜덤 딜레이 (80~230ms)
+                setTimeout(type, delay);
+            }
+        };
+        type();
+    }, [text, start]);
+
+    return (
+        <span>
+            {display}
+            <span className="cursor"></span>
+        </span>
+    );
+}
 
 function IndexHeader({ isReady }) {
     const pageHeader = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
     const [typewriterStarted, setTypewriterStarted] = useState(false);
 
-    const slideImages = [
-        require("assets/img/header1.webp"),
-    ];
+    const slideImages = [require("assets/img/header1.webp")];
 
     const settings = {
         dots: true,
@@ -40,7 +66,7 @@ function IndexHeader({ isReady }) {
         }
     }, []);
 
-    // 타자기 시작 지연 (예: 1초 후)
+    // 타자기 시작 지연
     useEffect(() => {
         const timer = setTimeout(() => setTypewriterStarted(true), 500);
         return () => clearTimeout(timer);
@@ -48,12 +74,15 @@ function IndexHeader({ isReady }) {
 
     return (
         <section
-            className={`testimonials fade-in ${isReady ? 'show' : ''}`}
+            className={`testimonials fade-in ${isReady ? "show" : ""}`}
             ref={pageHeader}
         >
             {isReady && (
                 <>
-                    <div className="text-overlay" style={{ margin: '0 4vw', marginTop: '8vh' }}>
+                    <div
+                        className="text-overlay"
+                        style={{ margin: "0 4vw", marginTop: "8vh" }}
+                    >
                         <h2>
                             우리 대학에 꼭 맞는<br />
                             외국인 유학생 프로그램을 찾고 계신가요?
@@ -80,26 +109,30 @@ function IndexHeader({ isReady }) {
                                     textAlign: "center",
                                 }}
                             >
-                                {typewriterStarted && (
-                                    <Typewriter
-                                        words={["로컬트립가이드"]}
-                                        typeSpeed={330}
-                                        deleteSpeed={50}
-                                        delaySpeed={2000}
-                                    />
+                                {typewriterStarted ? (
+                                    <KoreanTypewriter text="로컬트립가이드" start={true} />
+                                ) : (
+                                    "로컬트립가이드"
                                 )}
-                                {!typewriterStarted && "로컬트립가이드"} {/* 미리 공간 확보 */}
                             </span>
                             &nbsp;가 완성합니다.
                         </h6>
 
-                        <br /><br />
+                        <br />
+                        <br />
                         <button className="btn-solid">
-                            <p><strong>문의하기</strong></p>
+                            <p>
+                                <strong>문의하기</strong>
+                            </p>
                         </button>
 
-                        <button className="btn-outline" style={{ marginLeft: 'calc(4px + 0.8vw)' }}>
-                            <p><strong>서비스 소개서 ></strong></p>
+                        <button
+                            className="btn-outline"
+                            style={{ marginLeft: "calc(4px + 0.8vw)" }}
+                        >
+                            <p>
+                                <strong>서비스 소개서 &gt;</strong>
+                            </p>
                         </button>
                     </div>
 
@@ -107,7 +140,9 @@ function IndexHeader({ isReady }) {
                         {slideImages.map((src, idx) => (
                             <div key={idx} className="slide-container">
                                 <img
-                                    className={`slide-image ${idx === activeIndex ? 'active' : ''}`}
+                                    className={`slide-image ${
+                                        idx === activeIndex ? "active" : ""
+                                    }`}
                                     src={src}
                                     alt={`slide-${idx}`}
                                 />

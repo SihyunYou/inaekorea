@@ -10,19 +10,28 @@ import {
 } from "reactstrap";
 
 function IndexNavbar({ isReady }) {
+  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+
+  React.useEffect(() => {
+    const updateNavbarColor = () => {
+      if (
+        document.documentElement.scrollTop > 399 ||
+        document.body.scrollTop > 399
+      ) {
+        setNavbarColor("");
+      } else {
+        setNavbarColor("navbar-transparent");
+      }
+    };
+    window.addEventListener("scroll", updateNavbarColor);
+    return () => window.removeEventListener("scroll", updateNavbarColor);
+  }, []);
+
   if (!isReady) return null;
 
   return (
-    <Navbar style={{
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    zIndex: 10,
-    boxShadow: 'none',
-    padding: '0'
-  }}>
-      <Container fluid style={{ margin: 'auto calc(7vw - 10px)', padding: '0' }}>
+    <Navbar className={"fixed-top " + navbarColor} color="info" style={{ padding: '10px 0' }}>
+      <Container fluid style={{ margin: 'auto calc(8vw - 12px)', padding: '0' }}>
         <Nav
           navbar
           className="ml-auto"
@@ -31,7 +40,7 @@ function IndexNavbar({ isReady }) {
             flexDirection: 'row',
             alignItems: "center",
             justifyContent: 'space-between',
-            marginTop: '3.5vh'
+            margin: '0.5vh 0'
           }}
         >
           <NavItem style={{ cursor: 'pointer' }}>

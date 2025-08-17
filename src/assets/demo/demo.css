@@ -774,6 +774,7 @@ h6 {
 
 .btn-outline:hover {
   background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
 }
 
 .btn-solid {
@@ -788,4 +789,5 @@ h6 {
 
 .btn-solid:hover {
   background-color: rgba(0, 168, 108, 1);
+  transform: scale(1.05);
 }

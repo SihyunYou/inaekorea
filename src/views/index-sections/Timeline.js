@@ -28,7 +28,7 @@ export default function Timeline({ data }) {
     {item.addition && item.addition.length > 0 && (
 <ul style={{ padding: '0', marginTop: '10px' }}>
   {item.addition.map((add, idx) => (
-    <li key={idx} style={{ display: 'inline' }}>
+    <li key={idx} style={{ color: '#333', display: 'inline' }}>
       <span style={{ marginRight: '5px', fontSize: '22px', lineHeight: '0.8' }}>•</span>
       {add}<br />
     </li>
@@ -45,7 +45,7 @@ export default function Timeline({ data }) {
     {item.addition && item.addition.length > 0 && (
 <ul style={{ padding: '0', marginTop: '10px' }}>
   {item.addition.map((add, idx) => (
-    <li key={idx} style={{ display: 'inline' }}>
+    <li key={idx} style={{ color: '#333', display: 'inline' }}>
       {add}
       <span style={{ marginLeft: '5px', fontSize: '22px', lineHeight: '0.8' }}>•<br /></span>
     </li>

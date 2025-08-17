@@ -16,7 +16,7 @@ import SlideInSection from "./index-sections/SlideInSection.js";
 import ChannelTalkButton from "./index-sections/ChannelTalkButton.js";
 import PrimaryButton from "./index-sections/PrimaryButton.js";
 import StepSection from './index-sections/StepSection';
-import SectionHeader from "./index-sections/SectionHeader.js";
+import ProgramSection from "./index-sections/ProgramSection.js";
 import { generateGreenGradient } from "./utils/Color.js";
 
 import header1 from "assets/img/header1.webp";
@@ -122,23 +122,6 @@ const CAROUSEL_IMAGES2 = [
   "아트뮤", "백제문화단지", "사비공예마을",   "부여군", "아트뮤", "백제문화단지", "사비공예마을",   "부여군"
 ];
 
-const SECTION_HEADERS = {
-  stats1: {
-mainText: "외국인 유학생 대상<strong style='color:#00A86A'> 문화/직무 체험</strong><br />프로그램 때문에 고민이신가요?"
-  },
-  stats2: {
-  mainText: "검증된 솔루션, <strong style='color:#00A86A'>로컬트립가이드</strong>의<br />실적을 확인해보세요."
-  },
-  partners: {
-    mainText: "이미 많은 대학교 및 회사가<br /><strong style='color:#00A86A'>로컬트립가이드</strong>를 도입하고 있습니다."
-  },
-  function: {
-    mainText: "<strong style='color:#00A86A'>로컬트립가이드 통합 솔루션</strong>을 통해<br />다양한 프로그램을 기획/운영/보고 할 수 있습니다."
-  },
-  process: {
-    mainText: "<strong style='color:#00A86A'>로컬트립가이드</strong>는<br />어떻게 진행되나요?",
-  },
-};
 
 const headerImage = "/assets/img/header1.webp";
 const logoImage = "/assets/img/logo-localtripguide.webp";
@@ -225,30 +208,60 @@ useEffect(() => {
                         <div className="main">
                             <Spacer count={10} />
                             <Container>
-                                <SectionHeader {...SECTION_HEADERS.stats1} />
-                                <Spacer />
-                                <StatBoxes statsData={STATS_DATA1} styleOption={1} />
-                                <Spacer count={15} />
+<h5 style={{ textAlign: 'center' }}>
+    외국인 유학생 대상
+    <strong style={{ color: "#00A86A" }}> 문화/직무 체험</strong>
+    <br />
+    프로그램 때문에 고민이신가요?
+</h5>
+<Spacer />
+<StatBoxes statsData={STATS_DATA1} styleOption={1} />
+<Spacer count={15} />
 
-                                <SectionHeader {...SECTION_HEADERS.partners} />
-                                <Spacer />
-                                <Performance images1={CAROUSEL_IMAGES1} images2={CAROUSEL_IMAGES2} />
-                                <Spacer count={15} />
+<h5 style={{ textAlign: 'center' }}>
+    검증된 솔루션, <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>의
+    <br />
+    실적을 확인해보세요.
+</h5>
+<Spacer />
+<Performance images1={CAROUSEL_IMAGES1} images2={CAROUSEL_IMAGES2} />
+<Spacer count={15} />
 
-                                <SectionHeader {...SECTION_HEADERS.stats2} />
-                                <Spacer />
-                                <StatBoxes statsData={STATS_DATA2} styleOption={0} />
-                                <Spacer count={15} />
+<h5 style={{ textAlign: 'center' }}>
+    이미 많은 대학교 및 회사가
+    <br />
+    <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>를 도입하고 있습니다.
+</h5>
+<Spacer />
+<StatBoxes statsData={STATS_DATA2} styleOption={0} />
+<Spacer count={15} />
 
-                                <SectionHeader {...SECTION_HEADERS.function} />
-                                <Spacer />
-                                <MultiTabAccordion />
-                                <Spacer count={15} />
+<h5 style={{ textAlign: 'center' }}>
+    <strong style={{ color: "#00A86A" }}>로컬트립가이드 통합 솔루션</strong>을 통해
+    <br />
+    다양한 프로그램을 기획/운영/보고 할 수 있습니다.
+</h5>
+<Spacer />
+<MultiTabAccordion />
+<Spacer count={15} />
 
-                                <SectionHeader {...SECTION_HEADERS.process} />
-                                <Spacer />
-                                <Timeline data={steps} />
-                                <Spacer count={10} />
+<h5 style={{ textAlign: 'center' }}>
+    <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>는
+    <br />
+    어떻게 진행되나요?
+</h5>
+<Spacer />
+<Timeline data={steps} />
+<Spacer count={15} />
+
+<h5 style={{ textAlign: 'center' }}>
+    <strong style={{ color: "#00A86A" }}>로컬 콘텐츠</strong>를 활용한 다양한
+    <br />
+    문화/직무체험 프로그램들이 준비되어 있습니다.
+</h5>
+<Spacer />
+<ProgramSection />
+<Spacer count={15} />
                             </Container>
                         </div>
                                 <div style={{ backgroundColor: '#2c2c2c', color: 'white' }}>
