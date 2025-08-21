@@ -1,96 +1,121 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Navbar,
-  NavbarBrand,
   Container,
   Nav,
   NavItem,
   NavLink,
 } from "reactstrap";
 
-function IndexNavbar({ isReady }) {
-  const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
+function IndexNavbar({ isReady, fixColor = false }) {
+  const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
-    const updateNavbarColor = () => {
-      if (
-        document.documentElement.scrollTop > 399 ||
-        document.body.scrollTop > 399
-      ) {
-        setNavbarColor("");
-      } else {
-        setNavbarColor("navbar-transparent");
-      }
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      setScrolled(scrollTop > 399);
     };
-    window.addEventListener("scroll", updateNavbarColor);
-    return () => window.removeEventListener("scroll", updateNavbarColor);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!isReady) return null;
 
+  const navbarBg = scrolled || fixColor ? "#f8f8f8" : "transparent";
+  const logoSrc = scrolled || fixColor ? "./long-logo2.png" : "./long-logo1.png";
+  const textColor = scrolled || fixColor ? "#000" : "#fff";
+  const contactBg = scrolled || fixColor ? "#00A86C" : "transparent";
+  const contactBorder = scrolled || fixColor ? "none" : "1px solid white";
+
   return (
-    <Navbar className={"fixed-top " + navbarColor} color="info" style={{ padding: '10px 0' }}>
-      <Container fluid style={{ margin: 'auto calc(8vw - 12px)', padding: '0' }}>
+    <Navbar
+      className="fixed-top"
+      style={{
+        padding: scrolled || fixColor ? "1vh 0" : "2.5vh 0",
+        backgroundColor: navbarBg,
+        boxShadow: scrolled || fixColor ? undefined : "none",
+        transition: "all 0.3s ease",
+      }}
+    >
+      <Container fluid style={{ margin: "auto calc(5vw - 15px)" }}>
         <Nav
           navbar
           className="ml-auto"
           style={{
-            display: 'flex',
-            flexDirection: 'row',
+            display: "flex",
+            flexDirection: "row",
             alignItems: "center",
-            justifyContent: 'space-between',
-            margin: '0.5vh 0'
+            justifyContent: "space-between",
+            margin: "0.5vh 0",
           }}
         >
-          <NavItem style={{ cursor: 'pointer' }}>
+          {/* 로고 */}
+          <NavItem style={{ cursor: "pointer" }}>
             <NavLink href="/">
               <img
-                alt="..."
-                src={require("assets/img/logo-localtripguide.png")}
+                alt="logo"
+                src={logoSrc}
                 style={{
-                  width: 'calc(64px + 3.2vw)',
-                  display: 'block'
+                  width: "calc(60px + 4.5vw)",
+                  display: "block",
+                  transition: "all 0.3s ease",
                 }}
               />
             </NavLink>
           </NavItem>
 
-          <div style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: "center",
-            justifyContent: 'center',
-            gap: '0.75vw'
-          }}>
-            <NavItem style={{ cursor: 'pointer' }}>
-              <NavLink href="/program" style={{ textTransform: 'none', borderRadius: '15px' }}>
-                <span style={{
-                  fontSize: 'calc(0.5rem + 0.25vw)',
-                  fontWeight: '600'
-                }}>
+          {/* 메뉴 */}
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.75vw",
+            }}
+          >
+            <NavItem style={{ cursor: "pointer" }}>
+              <NavLink
+                href="/program"
+                style={{ textTransform: "none", borderRadius: "15px" }}
+              >
+                <span
+                  style={{
+                    fontSize: "calc(0.36rem + 0.54vw)",
+                    fontWeight: "600",
+                    color: textColor,
+                  }}
+                >
                   Program
                 </span>
               </NavLink>
             </NavItem>
 
-            <NavItem style={{ cursor: 'pointer' }}>
-              <NavLink href="/enaekorea" style={{ textTransform: 'none', borderRadius: '15px' }}>
-                <span style={{
-                  fontSize: 'calc(0.5rem + 0.25vw)',
-                  fontWeight: '600'
-                }}>
-                  About Us
-                </span>
-              </NavLink>
-            </NavItem>
-
-            <NavItem style={{ cursor: 'pointer', border: '1px solid white', borderRadius: '15px' }}>
-              <NavLink href="/contactus" style={{ textTransform: 'none', padding: '4px 8px', borderRadius: '15px' }}>
-                <span style={{
-                  fontSize: 'calc(0.5rem + 0.25vw)',
-                  fontWeight: '600'
-                }}>
+            <NavItem
+              style={{
+                cursor: "pointer",
+                border: contactBorder,
+                borderRadius: "15px",
+                backgroundColor: contactBg,
+              }}
+            >
+              <NavLink
+                href="http://pf.kakao.com/_yUxden"
+                style={{
+                  textTransform: "none",
+                  padding: "4px 8px",
+                  borderRadius: "15px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "calc(0.36rem + 0.54vw)",
+                    fontWeight: "600",
+                    color: "white",
+                padding: "2px 4px",
+                  }}
+                >
                   Contact Us
                 </span>
               </NavLink>

@@ -3,7 +3,7 @@ import kakaotalkIcon from "assets/img/kakaotalk.png";
 import "./KakaoChatButton.css"; // 아래 CSS 참고
 
 export default function KakaoChatButton() {
-  const kakaoUrl = "https://pf.kakao.com/_yourchatlink";
+  const kakaoUrl = "http://pf.kakao.com/_yUxden";
 
   const onClickHandler = () => {
     window.open(kakaoUrl, "_blank");
@@ -11,7 +11,7 @@ export default function KakaoChatButton() {
 
   return (
     <div className="kakao-chat-container">
-      <div className="kakao-label">카카오톡 상담하기</div>
+      <div className="kakao-label">카카오톡<br />채널상담</div>
       <button
         className="kakao-button"
         onClick={onClickHandler}

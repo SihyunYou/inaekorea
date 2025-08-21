@@ -46,21 +46,21 @@
 /* 왼쪽 이동 */
 .left .item {
   left: max(calc(200px * 8), 100%);
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 25s linear infinite;
 }
 
 /* 오른쪽 이동 */
 .right .item {
   right: max(calc(200px * 8), 100%);
-  animation: scrollRight 20s linear infinite;
+  animation: scrollRight 25s linear infinite;
 }
 
 /* 각 아이템의 애니메이션 딜레이 */
-.left .item1, .right .item1 { animation-delay: calc((-20s / 8) * 7); }
-.left .item2, .right .item2 { animation-delay: calc((-20s / 8) * 6); }
-.left .item3, .right .item3 { animation-delay: calc((-20s / 8) * 5); }
-.left .item4, .right .item4 { animation-delay: calc((-20s / 8) * 4); }
-.left .item5, .right .item5 { animation-delay: calc((-20s / 8) * 3); }
-.left .item6, .right .item6 { animation-delay: calc((-20s / 8) * 2); }
-.left .item7, .right .item7 { animation-delay: calc((-20s / 8) * 1); }
-.left .item8, .right .item8 { animation-delay: calc((-20s / 8) * 0); }
+.left .item1, .right .item1 { animation-delay: calc((-25s / 8) * 7); }
+.left .item2, .right .item2 { animation-delay: calc((-25s / 8) * 6); }
+.left .item3, .right .item3 { animation-delay: calc((-25s / 8) * 5); }
+.left .item4, .right .item4 { animation-delay: calc((-25s / 8) * 4); }
+.left .item5, .right .item5 { animation-delay: calc((-25s / 8) * 3); }
+.left .item6, .right .item6 { animation-delay: calc((-25s / 8) * 2); }
+.left .item7, .right .item7 { animation-delay: calc((-25s / 8) * 1); }
+.left .item8, .right .item8 { animation-delay: calc((-25s / 8) * 0); }

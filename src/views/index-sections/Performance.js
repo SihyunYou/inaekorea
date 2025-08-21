@@ -13,8 +13,10 @@ export default function Performance({ images1, images2 }) {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "3vh" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "2.5vh" }}>
+      <p style={{ color: '#888', textAlign: 'center', marginTop: '1.5vh' }}>대학교</p>
       <InfiniteCarousel images={images1} />
+      <p style={{ color: '#888', textAlign: 'center' }}>파트너사/지자체</p>
       <InfiniteCarousel images={images2} reverse={true} />
     </div>
   );

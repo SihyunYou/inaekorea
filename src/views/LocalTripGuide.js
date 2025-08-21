@@ -13,10 +13,11 @@ import MultiTabAccordion from "./index-sections/MultiTabAccordion.js";
 import Timeline from "./index-sections/Timeline.js";
 import { StatBoxes } from "./index-sections/StatBox.js";
 import SlideInSection from "./index-sections/SlideInSection.js";
-import ChannelTalkButton from "./index-sections/ChannelTalkButton.js";
+import KakaoChatButton from "./index-sections/KakaoChatButton.js";
 import PrimaryButton from "./index-sections/PrimaryButton.js";
 import StepSection from './index-sections/StepSection';
 import ProgramSection from "./index-sections/ProgramSection.js";
+import BlogSection from "./index-sections/BlogSection.js";
 import { generateGreenGradient } from "./utils/Color.js";
 
 import header1 from "assets/img/header1.webp";
@@ -27,19 +28,19 @@ const greenColors = generateGreenGradient(5);
 const steps = [
     {
         id: 1,
-        title: "킥오프 미팅",
+        title: "킥오프 미팅 (D-14)",
         description: "고객사의 니즈를 파악합니다.",
         addition: ["프로그램 테마", "예산 / 일정 / 규모 등"],
     },
     {
         id: 2,
-        title: "맞춤형 기획",
+        title: "맞춤형 기획 (D-10)",
         description: "니즈에 맞는 운영기획안을 제작합니다.",
         addition: ["맞춤형 프로그램 기획", "예산 확정", "운영기획안 제공"],
     },
     {
         id: 3,
-        title: "프로그램 준비",
+        title: "프로그램 준비 (D-7)",
         description: "프로그램의 필요한 요소들을 제작하고 준비합니다.",
         addition: [
             "계약 및 보증보험 가입 등",
@@ -51,13 +52,13 @@ const steps = [
     },
     {
         id: 4,
-        title: "현장 운영",
+        title: "현장 운영 (D-DAY)",
         description: "안전하고 원활한 운영을 통해<br />프로그램을 성공적으로 마무리합니다.",
         addition: ["출석부 제공", "종교 및 문화에 따른 식단 반영", "만족도 조사"],
     },
     {
         id: 5,
-        title: "결과 보고",
+        title: "결과 보고 (D+7)",
         description: "데이터 기반의 결과 보고서<br />및 후속 업무를 진행합니다.",
         addition: [
             "데이터 기반의 결과보고서 제작",
@@ -86,8 +87,8 @@ const STATS_DATA1 = [
 const STATS_DATA2 = [
   { 
     imgSrc: "fruit2.webp", 
-    end: 1500, 
-    suffix: "+", 
+    end: 2363, 
+    suffix: "명", 
     label: "참여 유학생", 
     duration: 2
   },
@@ -100,16 +101,16 @@ const STATS_DATA2 = [
   },
   { 
     imgSrc: "fruit3.webp", 
-    end: 50, 
+    end: 428, 
     suffix: "%", 
-    label: "로트가 성장률", 
+    label: "학기별 성장률", 
     duration: 3
   },
   { 
     imgSrc: "fruit4.webp", 
-    end: 20, 
-    suffix: "+", 
-    label: "보유 프로그램 수", 
+    end: 18, 
+    suffix: "건", 
+    label: "프로그램 포트폴리오", 
     duration: 4
   }
 ];
@@ -119,7 +120,7 @@ const CAROUSEL_IMAGES1 = [
   "선문대", "중부대", "백석문화대", "순천향대"
 ];
 const CAROUSEL_IMAGES2 = [
-  "아트뮤", "백제문화단지", "사비공예마을",   "부여군", "아트뮤", "백제문화단지", "사비공예마을",   "부여군"
+  "아트뮤", "함초롬", "사비공예마을", "부여군",   "아트뮤", "함초롬", "사비공예마을", "부여군",
 ];
 
 
@@ -195,9 +196,11 @@ useEffect(() => {
             <Helmet>
               <title>로컬트립가이드</title>
               <meta name="description" content="문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, 로컬트립가이드가 완성합니다." />
+              <meta name="keywords" content="외국인, 유학생, 대학교, 국제교류처, 여행, 문화체험, 직무체험" />
               <meta property="og:title" content="로컬트립가이드" />
-              <meta property="og:description" content="문화체험부터 직무체험까지 대학교 맞춤형 통합 솔루션, 로컬트립가이드가 완성합니다." />
-              <meta property="og:image" content="/logo.jpg" />
+              <meta property="og:description" content="우리 대학에 꼭 맞는 외국인 유학생 프로그램을 찾고 계신가요?" />
+              <meta property="og:image" content="/square-logo.jpg" />
+              <meta property="og:type" content="website" />
               <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
             </Helmet>
             <div className={`fade-wrapper ${isReady ? 'fade-in' : ''}`}>
@@ -219,18 +222,18 @@ useEffect(() => {
 <Spacer count={15} />
 
 <h5 style={{ textAlign: 'center' }}>
-    검증된 솔루션, <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>의
+    이미 많은 대학교 및 회사가
     <br />
-    실적을 확인해보세요.
+    <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>를 도입하고 있습니다.
 </h5>
 <Spacer />
 <Performance images1={CAROUSEL_IMAGES1} images2={CAROUSEL_IMAGES2} />
 <Spacer count={15} />
 
 <h5 style={{ textAlign: 'center' }}>
-    이미 많은 대학교 및 회사가
+    검증된 솔루션, <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>의
     <br />
-    <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>를 도입하고 있습니다.
+    실적을 확인해보세요.
 </h5>
 <Spacer />
 <StatBoxes statsData={STATS_DATA2} styleOption={0} />
@@ -262,6 +265,15 @@ useEffect(() => {
 <Spacer />
 <ProgramSection />
 <Spacer count={15} />
+
+<h5 style={{ textAlign: 'center' }}>
+    <strong style={{ color: "#00A86A" }}>로컬트립가이드</strong>의 문화/직무체험
+    <br />
+    프로그램들에 대해 더 궁금하신가요?
+</h5>
+<Spacer />
+<BlogSection />
+<Spacer count={15} />
                             </Container>
                         </div>
                                 <div style={{ backgroundColor: '#2c2c2c', color: 'white' }}>
@@ -270,16 +282,25 @@ useEffect(() => {
                                <h6 style={{ textAlign: 'center' }}><strong style={{ color: '#00A86C' }}>로컬트립가이드</strong>와 함께</h6><br />
                                 <Spacer />
                                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '20px' }}>
-                                <PrimaryButton 
+                                <PrimaryButton
+                                    onClick={() => window.open("http://pf.kakao.com/_yUxden", "_blank")} 
                                     inverse={true}
                                     tag="h6"
                                 >
                                      &nbsp;&nbsp;&nbsp;&nbsp;문의하기&nbsp;&nbsp;&nbsp;&nbsp;
                                 </PrimaryButton>
-                                <PrimaryButton 
-                                    href={PROPOSAL_LINK}
-                                    tag="h6"
-                                >
+<PrimaryButton
+    onClick={() => {
+        const link = document.createElement("a");
+        link.href = "/LocalTripGuide.pdf";      // public 폴더에 있는 파일
+        link.download = "LocalTripGuide.pdf";   // 저장될 파일 이름 (옵션)
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }}
+    inverse={false}
+    tag="h6"
+>
                                     서비스 소개서 >
                                 </PrimaryButton>
                                 </div>
@@ -289,7 +310,7 @@ useEffect(() => {
                     </div>
                 </div>
             </div>
-            <ChannelTalkButton />
+            <KakaoChatButton />
         </>
     );
 }

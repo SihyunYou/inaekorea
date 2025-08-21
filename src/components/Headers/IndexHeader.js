@@ -9,16 +9,16 @@ function KoreanTypewriter({ text, start }) {
     const [display, setDisplay] = useState("");
 
     useEffect(() => {
-        if (!start) return; // 시작 여부 제어
-        const chars = Hangul.disassemble(text); // 초/중/종 분리
+        if (!start) return;
+        const chars = Hangul.disassemble(text);
         let i = 0;
 
         const type = () => {
             if (i <= chars.length) {
-                const current = Hangul.assemble(chars.slice(0, i)); // 현재까지 조합
+                const current = Hangul.assemble(chars.slice(0, i));
                 setDisplay(current);
                 i++;
-                const delay = Math.random() * 150 + 80; // 랜덤 딜레이 (80~230ms)
+                const delay = Math.random() * 150 + 80;
                 setTimeout(type, delay);
             }
         };
@@ -26,10 +26,13 @@ function KoreanTypewriter({ text, start }) {
     }, [text, start]);
 
     return (
-        <span>
-            {display}
-            <span className="cursor"></span>
-        </span>
+<span style={{ position: "relative", display: "inline-block" }}>
+  <span style={{ visibility: "hidden" }}>{text}</span>
+  <span style={{ position: "absolute", top: 0, left: 0 }}>
+    {display}
+    <span className="cursor"></span>
+  </span>
+</span>
     );
 }
 
@@ -37,6 +40,7 @@ function IndexHeader({ isReady }) {
     const pageHeader = useRef();
     const [activeIndex, setActiveIndex] = useState(0);
     const [typewriterStarted, setTypewriterStarted] = useState(false);
+    const [sliderReady, setSliderReady] = useState(false);
 
     const slideImages = [require("assets/img/header1.webp")];
 
@@ -51,6 +55,7 @@ function IndexHeader({ isReady }) {
         slidesToScroll: 1,
         pauseOnHover: false,
         afterChange: (current) => setActiveIndex(current),
+        onInit: () => setSliderReady(true), // ✅ 초기화 끝나면 보여주기
     };
 
     useEffect(() => {
@@ -61,12 +66,12 @@ function IndexHeader({ isReady }) {
                     pageHeader.current.style.transform = `translate3d(0,${windowScrollTop}px,0)`;
                 }
             };
+            updateScroll(); // ✅ 처음 렌더 시에도 한 번 실행
             window.addEventListener("scroll", updateScroll);
             return () => window.removeEventListener("scroll", updateScroll);
         }
     }, []);
 
-    // 타자기 시작 지연
     useEffect(() => {
         const timer = setTimeout(() => setTypewriterStarted(true), 500);
         return () => clearTimeout(timer);
@@ -120,35 +125,50 @@ function IndexHeader({ isReady }) {
 
                         <br />
                         <br />
-                        <button className="btn-solid">
-                            <p>
-                                <strong>문의하기</strong>
-                            </p>
-                        </button>
-
-                        <button
-                            className="btn-outline"
-                            style={{ marginLeft: "calc(4px + 0.8vw)" }}
-                        >
-                            <p>
-                                <strong>서비스 소개서 &gt;</strong>
-                            </p>
-                        </button>
+                        <a href="http://pf.kakao.com/_yUxden">
+                            <button className="btn-solid">
+                                <p>
+                                    <strong>문의하기</strong>
+                                </p>
+                            </button>
+                        </a>
+                        <a href="./LocalTripGuide.pdf" download="LocalTripGuide.pdf">
+                            <button
+                                className="btn-outline"
+                                style={{
+                                    marginLeft: "calc(4px + 0.8vw)",
+                                    textDecoration: "none",
+                                    display: "inline-block",
+                                }}
+                            >
+                                <p>
+                                    <strong>서비스 소개서 &gt;</strong>
+                                </p>
+                            </button>
+                        </a>
                     </div>
 
-                    <Slider {...settings}>
-                        {slideImages.map((src, idx) => (
-                            <div key={idx} className="slide-container">
-                                <img
-                                    className={`slide-image ${
-                                        idx === activeIndex ? "active" : ""
-                                    }`}
-                                    src={src}
-                                    alt={`slide-${idx}`}
-                                />
-                            </div>
-                        ))}
-                    </Slider>
+                    {/* ✅ 초기화 전 opacity 0 → slick 준비 후 1 */}
+                    <div
+                        style={{
+                            opacity: sliderReady ? 1 : 0,
+                            transition: "opacity 0.6s ease-in",
+                        }}
+                    >
+                        <Slider {...settings}>
+                            {slideImages.map((src, idx) => (
+                                <div key={idx} className="slide-container">
+                                    <img
+                                        className={`slide-image ${
+                                            idx === activeIndex ? "active" : ""
+                                        }`}
+                                        src={src}
+                                        alt={`slide-${idx}`}
+                                    />
+                                </div>
+                            ))}
+                        </Slider>
+                    </div>
                 </>
             )}
         </section>

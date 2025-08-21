@@ -49,7 +49,7 @@ export function StatBox({ imgSrc, end, suffix, label, duration = 2, styleOption 
           <CountUp end={end} duration={duration} suffix={suffix} separator="," />
         </h6>
       )}
-      <h6 style={{ color: "white" }} dangerouslySetInnerHTML={{ __html: label }} />
+      <p style={{ color: "white", fontWeight: '600' }} dangerouslySetInnerHTML={{ __html: label }} />
     </motion.div>
   );
 }

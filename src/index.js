@@ -26,6 +26,7 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 // pages for this kit
 import LocalTripGuide from "views/LocalTripGuide.js";
+import LocalTripGuideProgram from "views/LocalTripGuideProgram.js";
 import EnaeKorea from "views/EnaeKorea.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -34,6 +35,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<LocalTripGuide />} />
+      <Route path="/program" element={<LocalTripGuideProgram />} />
       <Route path="/enaekorea" element={<EnaeKorea />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
