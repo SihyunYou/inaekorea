@@ -102,13 +102,13 @@ export default function BlogSection2() {
       </div>
 
       {/* 카드 출력 */}
-      <Row>
-        {filteredCards.map((card) => (
-          <Col md={4} key={card.id} style={{ marginBottom: "60px" }}>
-            <AnimatedCard card={card} />
-          </Col>
-        ))}
-      </Row>
+<Row>
+  {filteredCards.map((card) => (
+    <Col md={4} key={`${activeTab}-${card.id}`} style={{ marginBottom: "60px" }}>
+      <AnimatedCard card={card} />
+    </Col>
+  ))}
+</Row>
     </div>
   );
 }
